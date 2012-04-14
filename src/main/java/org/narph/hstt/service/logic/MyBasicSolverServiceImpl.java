@@ -1,7 +1,6 @@
 package org.narph.hstt.service.logic;
 
 import org.narph.hstt.service.SolverService;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 /**
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Service;
  * Time: 19:00
  */
 @Service
-@Qualifier("bsicSolver")
 public class MyBasicSolverServiceImpl implements SolverService {
 
     private static String solverName = "";

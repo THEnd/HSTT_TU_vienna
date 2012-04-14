@@ -9,20 +9,25 @@ import java.io.Serializable;
  * Date: 05.04.12
  * Time: 13:30
  */
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Entity(name = "basicConstraint")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(
+        name = "constraintType",
+        discriminatorType = DiscriminatorType.STRING
+)
 public class Constraint implements Serializable {
 
     private static final long serialVersionUID = -3544922865266049529L;
 
-    @GeneratedValue
     @Id
+    @GeneratedValue
     private int id;
 
     private String name;
     private boolean required;
     private int weight;
     private CostFunction costFunction;
+
 
     @ManyToOne(optional = false)
     private Instance instance;
@@ -83,6 +88,8 @@ public class Constraint implements Serializable {
     public void setInstance(Instance instance) {
         this.instance = instance;
     }
+
+
 
     @Override
     public String toString() {

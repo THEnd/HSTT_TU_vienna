@@ -5,7 +5,6 @@ import org.narph.hstt.dao.*;
 import org.narph.hstt.model.*;
 import org.narph.hstt.service.ImportService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -93,6 +92,7 @@ public class DOMParserHSTT implements ImportService {
                                     LOGGER.debug("DOM - instance handling -> " + instanceElement.getTagName() +
                                             ", " + instanceElement.getAttribute("Id"));
                                     instance.setId(instanceElement.getAttribute("Id"));
+                                    LOGGER.debug(" has interface: " + (instanceDAO != null ) );
                                     instanceDAO.create(instance);
                                     //TODO save()
                                 }
@@ -130,7 +130,7 @@ public class DOMParserHSTT implements ImportService {
             return true;
         } catch (Exception e) {
             LOGGER.error("Parser Error DOM: " + e.getLocalizedMessage() + e.fillInStackTrace());
-            LOGGER.debug(e.getCause());
+            LOGGER.debug(e);
         }
 
         return false;

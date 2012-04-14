@@ -11,17 +11,22 @@
               http://www.springframework.org/schema/data/jpa
               http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
               http://www.springframework.org/schema/jdbc
-              http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd">
+              http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+              http://www.springframework.org/schema/context
+              http://www.springframework.org/schema/context/spring-context.xsd
+              http://www.springframework.org/schema/tx
+              http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
 
     <context:annotation-config />
     <context:component-scan base-package="org.narph.hstt.model" />
     <context:component-scan base-package="org.narph.hstt.dao" />
     <context:component-scan base-package="org.narph.hstt.service" />
 
+    <!-- define Datasources -->
     <bean id="mysqlDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="username" value="solver" />
-        <property name="password" value="" />
+        <property name="username" value="root" />
+        <property name="password" value="set877" />
         <property name="url" value="jdbc:mysql://localhost:3306/test" />
     </bean>
 
@@ -34,23 +39,66 @@
 
     <!-- define Hibernate SessionFactory -->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
-        <!-- <property name="configLocation" value="META-INF/persistence.xml" />-->
         <property name="dataSource" ref="mysqlDataSource" />
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
-                <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <prop key="hibernate.hbm2ddl.auto">validate</prop>
             </props>
         </property>
-        <property name="annotatedPackages">
+        <property name="annotatedClasses">
             <list>
-                <value>org.narph.hstt.model</value>
-                <value>org.narph.hstt.model.constraint</value>
+                <value>org.narph.hstt.model.Assignment</value>
+                <value>org.narph.hstt.model.Constraint</value>
+                <value>org.narph.hstt.model.ConstraintEntity</value>
+                <value>org.narph.hstt.model.Course</value>
+                <value>org.narph.hstt.model.Event</value>
+                <value>org.narph.hstt.model.EventGroup</value>
+                <value>org.narph.hstt.model.EventResource</value>
+                <value>org.narph.hstt.model.Instance</value>
+                <value>org.narph.hstt.model.Resource</value>
+                <value>org.narph.hstt.model.ResourceType</value>
+                <value>org.narph.hstt.model.ResourceGroup</value>
+                <value>org.narph.hstt.model.Time</value>
+                <value>org.narph.hstt.model.TimeGroup</value>
+                <value>org.narph.hstt.model.constraint.AssignResourceConstraint</value>
+                <value>org.narph.hstt.model.constraint.AssignTimeConstraint</value>
+                <value>org.narph.hstt.model.constraint.AvoidClashesConstraint</value>
+                <value>org.narph.hstt.model.constraint.AvoidSplitAssignmentConstraint</value>
+                <value>org.narph.hstt.model.constraint.AvoidUnavailableTimesConstraint</value>
+                <value>org.narph.hstt.model.constraint.ClusterBusyTimesConstraint</value>
+                <value>org.narph.hstt.model.constraint.DistributeSplitEventsConstraint</value>
+                <value>org.narph.hstt.model.constraint.LimitBusyTimesConstraint</value>
+                <value>org.narph.hstt.model.constraint.LimitIdleTimesConstraint</value>
+                <value>org.narph.hstt.model.constraint.LimitWorkloadConstraint</value>
+                <value>org.narph.hstt.model.constraint.LinkEventsConstraint</value>
+                <value>org.narph.hstt.model.constraint.PreferResourcesConstraint</value>
+                <value>org.narph.hstt.model.constraint.PreferTimesConstraint</value>
+                <value>org.narph.hstt.model.constraint.SplitEventsConstraint</value>
+                <value>org.narph.hstt.model.constraint.SpreadEventsConstraint</value>
             </list>
         </property>
     </bean>
 
-    <tx:annotation-driven />
+    <!-- define JPA EntityManager-->
 
+
+    <!-- Transaction Manager -->
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+        <property name="dataSource" ref="mysqlDataSource" />
+        <property name="nestedTransactionAllowed" value="false" />
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+         <!--
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+        <property name="dataSource" ref="mysqlDataSource" />
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager" />
+    -->
 </beans>

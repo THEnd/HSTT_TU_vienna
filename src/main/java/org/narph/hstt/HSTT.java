@@ -21,17 +21,16 @@ public class HSTT {
 
 
     public static void main(final String[] args) throws Exception {
-        //ApplicationContext acx =
-        try{
-            new ClassPathXmlApplicationContext("file:spring-config.xml");
-        } catch (Exception e) {
-
-        }
-
 
         PropertyConfigurator.configureAndWatch("log4j.properties");
         LOGGER.info("welcome to the narph HSTT solver");
 
+
+        try{
+            new ClassPathXmlApplicationContext("classpath:spring-context.xml");
+        } catch (Exception e) {
+            LOGGER.error(" " + e.getLocalizedMessage());
+        }
 
         process("examples\\BrazilInstance1.xml");
         process("examples\\EnglandStPaul.xml");
