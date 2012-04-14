@@ -1,0 +1,1421 @@
+<HighSchoolTimetableArchive>
+  <Instances>
+    <Instance Id="DenmarkSmallSchool_XHSTT2013">
+      <MetaData>
+        <Name>denmark</Name>
+        <Contributor>contributor</Contributor>
+        <Date>today</Date>
+        <Country>no country</Country>
+        <Description>no description</Description>
+      </MetaData>
+      <Times>
+        <TimeGroups>
+          <Day Id="gr_Daily">
+            <Name>Daily</Name>
+          </Day>
+        </TimeGroups>
+        <Time Id="Daily_13.30 - 14.30">
+          <Name>Daily_13.30 - 14.30</Name>
+          <Day Reference="gr_Daily"/>
+        </Time>
+        <Time Id="Daily_14.40 - 15.40">
+          <Name>Daily_14.40 - 15.40</Name>
+          <Day Reference="gr_Daily"/>
+        </Time>
+        <Time Id="Daily_15.50 - 16.50">
+          <Name>Daily_15.50 - 16.50</Name>
+          <Day Reference="gr_Daily"/>
+        </Time>
+        <Time Id="Daily_17.00 - 18.00">
+          <Name>Daily_17.00 - 18.00</Name>
+          <Day Reference="gr_Daily"/>
+        </Time>
+      </Times>
+      <Resources>
+        <ResourceTypes>
+          <ResourceType Id="Teacher">
+            <Name>Teacher</Name>
+          </ResourceType>
+          <ResourceType Id="Student">
+            <Name>Student</Name>
+          </ResourceType>
+        </ResourceTypes>
+        <ResourceGroups>
+          <ResourceGroup Id="gr_Teachers">
+            <Name>AllTeachers</Name>
+            <ResourceType Reference="Teacher"/>
+          </ResourceGroup>
+          <ResourceGroup Id="gr_Students">
+            <Name>AllStudents</Name>
+            <ResourceType Reference="Student"/>
+          </ResourceGroup>
+        </ResourceGroups>
+        <Resource Id="Glenda">
+          <Name>Glenda</Name>
+          <ResourceType Reference="Teacher"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Teachers"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Hans">
+          <Name>Hans</Name>
+          <ResourceType Reference="Teacher"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Teachers"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Ingrid">
+          <Name>Ingrid</Name>
+          <ResourceType Reference="Teacher"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Teachers"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="TeacherJens">
+          <Name>Jens</Name>
+          <ResourceType Reference="Teacher"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Teachers"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Joergen">
+          <Name>Joergen</Name>
+          <ResourceType Reference="Teacher"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Teachers"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Michael">
+          <Name>Michael</Name>
+          <ResourceType Reference="Teacher"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Teachers"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Oliver">
+          <Name>Oliver</Name>
+          <ResourceType Reference="Teacher"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Teachers"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Per">
+          <Name>Per</Name>
+          <ResourceType Reference="Teacher"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Teachers"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Ute">
+          <Name>Ute</Name>
+          <ResourceType Reference="Teacher"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Teachers"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Alma">
+          <Name>Alma</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Amanda">
+          <Name>Amanda</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Anna L">
+          <Name>Anna L</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Anna-Maria">
+          <Name>Anna-Maria</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Annika">
+          <Name>Annika</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Astrid">
+          <Name>Astrid</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Birgitte">
+          <Name>Birgitte</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Bjorn">
+          <Name>Bjorn</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Bodil">
+          <Name>Bodil</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Britta">
+          <Name>Britta</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Christine">
+          <Name>Christine</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Dorie">
+          <Name>Dorie</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Dorte">
+          <Name>Dorte</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Elisabet">
+          <Name>Elisabet</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Elisabeth">
+          <Name>Elisabeth</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Erik">
+          <Name>Erik</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Ernst">
+          <Name>Ernst</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Eva">
+          <Name>Eva</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Filippa">
+          <Name>Filippa</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Gesa">
+          <Name>Gesa</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Grethe">
+          <Name>Grethe</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Gunda">
+          <Name>Gunda</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Hanna">
+          <Name>Hanna</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Hanne B">
+          <Name>Hanne B</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Hanne J">
+          <Name>Hanne J</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Hanne S">
+          <Name>Hanne S</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Helga">
+          <Name>Helga</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Helge">
+          <Name>Helge</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Helle">
+          <Name>Helle</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Ingeborg">
+          <Name>Ingeborg</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Inger">
+          <Name>Inger</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Inger Marie">
+          <Name>Inger Marie</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Jakob C-D">
+          <Name>Jakob C-D</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Jakob F">
+          <Name>Jakob F</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Jens">
+          <Name>Jens</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Joan">
+          <Name>Joan</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Johanne M">
+          <Name>Johanne M</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Johanne U">
+          <Name>Johanne U</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Jurgen">
+          <Name>Jurgen</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Karen P">
+          <Name>Karen P</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Karen M">
+          <Name>Karen M</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Karin">
+          <Name>Karin</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Katharina">
+          <Name>Katharina</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Kirsten">
+          <Name>Kirsten</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Laurie">
+          <Name>Laurie</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Lene">
+          <Name>Lene</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Lis H">
+          <Name>Lis H</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Lis Aa">
+          <Name>Lis Aa</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Lisbeth">
+          <Name>Lisbeth</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Magdalena">
+          <Name>Magdalena</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Marie-Louise D">
+          <Name>Marie-Louise D</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Marie-Louise R">
+          <Name>Marie-Louise R</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Marta">
+          <Name>Marta</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Mats">
+          <Name>Mats</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="mi">
+          <Name>mi</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Mia">
+          <Name>Mia</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Michael F">
+          <Name>Michael F</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Michael S">
+          <Name>Michael S</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Morten">
+          <Name>Morten</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Nanna">
+          <Name>Nanna</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Nina">
+          <Name>Nina</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Patience">
+          <Name>Patience</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Sigrid">
+          <Name>Sigrid</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Sigurdur">
+          <Name>Sigurdur</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Sine">
+          <Name>Sine</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Solvejg">
+          <Name>Solvejg</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Stine">
+          <Name>Stine</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Sven">
+          <Name>Sven</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Tine">
+          <Name>Tine</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Torben">
+          <Name>Torben</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Tore">
+          <Name>Tore</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Wolfgang">
+          <Name>Wolfgang</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Aase">
+          <Name>Aase</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+        <Resource Id="Vibeke">
+          <Name>Vibeke</Name>
+          <ResourceType Reference="Student"/>
+          <ResourceGroups>
+            <ResourceGroup Reference="gr_Students"/>
+          </ResourceGroups>
+        </Resource>
+      </Resources>
+      <Events>
+        <EventGroups>
+          <Course Id="gr_Air-Hanna,Mia,Sigrid,Nina,Michael F,Annika">
+            <Name>Air-Hanna,Mia,Sigrid,Nina,Michael F,Annika</Name>
+          </Course>
+          <Course Id="gr_Air-Karin,Johanne M,Jurgen,Alma,Jens,Lisbeth,Dorie">
+            <Name>Air-Karin,Johanne M,Jurgen,Alma,Jens,Lisbeth,Dorie</Name>
+          </Course>
+          <Course Id="gr_Sangteknik-Anna-Maria,Astrid,Bjorn,Sigurdur,Erik,Lis H">
+            <Name>Sangteknik-Anna-Maria,Astrid,Bjorn,Sigurdur,Erik,Lis H</Name>
+          </Course>
+          <Course Id="gr_Vokal een-Mia,Annika,Johanne U,Jens,Torben">
+            <Name>Vokal een-Mia,Annika,Johanne U,Jens,Torben</Name>
+          </Course>
+          <Course Id="gr_Bologna-Lene,Helga,Morten,Marta,Jakob F,Amanda,Torben">
+            <Name>Bologna-Lene,Helga,Morten,Marta,Jakob F,Amanda,Torben</Name>
+          </Course>
+          <Course Id="gr_Venedig-Tore,Hanne S,Grethe,Lene,Ingeborg,Magdalena,Amanda,Nanna,Karen M,Ernst,Christine">
+            <Name>Venedig-Tore,Hanne S,Grethe,Lene,Ingeborg,Magdalena,Amanda,Nanna,Karen M,Ernst,Christine</Name>
+          </Course>
+          <Course Id="gr_Fl. komsammen-Filippa,Aase,Anna L,Joan">
+            <Name>Fl. komsammen-Filippa,Aase,Anna L,Joan</Name>
+          </Course>
+          <Course Id="gr_CCR-Vibeke,Karen P,Kirsten,Inger Marie">
+            <Name>CCR-Vibeke,Karen P,Kirsten,Inger Marie</Name>
+          </Course>
+          <Course Id="gr_CCR-Anna L,Dorte,Britta,Stine">
+            <Name>CCR-Anna L,Dorte,Britta,Stine</Name>
+          </Course>
+          <Course Id="gr_Tyskland-Hanne S,Wolfgang,Laurie,Helga,Dorte,Lis Aa,Karen M,Mats">
+            <Name>Tyskland-Hanne S,Wolfgang,Laurie,Helga,Dorte,Lis Aa,Karen M,Mats</Name>
+          </Course>
+          <Course Id="gr_Sevilla-Tore,Jakob C-D,Ingeborg,Morten,Marta,Johanne U,Jakob F">
+            <Name>Sevilla-Tore,Jakob C-D,Ingeborg,Morten,Marta,Johanne U,Jakob F</Name>
+          </Course>
+          <Course Id="gr_Improvisation-Solvejg,Helge,Inger,Elisabeth">
+            <Name>Improvisation-Solvejg,Helge,Inger,Elisabeth</Name>
+          </Course>
+          <Course Id="gr_Vokal een-Hanna,Nanna,Britta,Michael F,Bjorn">
+            <Name>Vokal een-Hanna,Nanna,Britta,Michael F,Bjorn</Name>
+          </Course>
+          <Course Id="gr_Dans-Katharina,Tine,Elisabeth,Johanne M,Karen P,Anna-Maria,Helge,Lisbeth">
+            <Name>Dans-Katharina,Tine,Elisabeth,Johanne M,Karen P,Anna-Maria,Helge,Lisbeth</Name>
+          </Course>
+          <Course Id="gr_Wien-Grethe,Sven,Inger,Astrid,Ernst,Mats">
+            <Name>Wien-Grethe,Sven,Inger,Astrid,Ernst,Mats</Name>
+          </Course>
+          <Course Id="gr_Oxford-Filippa,Solvejg,Laurie,Aase,Joan,Christine,Bodil,Sine,Elisabet">
+            <Name>Oxford-Filippa,Solvejg,Laurie,Aase,Joan,Christine,Bodil,Sine,Elisabet</Name>
+          </Course>
+          <Course Id="gr_Beg. Blaes-Helle">
+            <Name>Beg. Blaes-Helle</Name>
+          </Course>
+          <Course Id="gr_Gambe-Gesa,Elisabeth,Eva,Lis Aa,Kirsten,Inger Marie">
+            <Name>Gambe-Gesa,Elisabeth,Eva,Lis Aa,Kirsten,Inger Marie</Name>
+          </Course>
+          <Course Id="gr_Gambe-Tine,Marie-Louise D">
+            <Name>Gambe-Tine,Marie-Louise D</Name>
+          </Course>
+          <Course Id="gr_Gambe-Patience,Vibeke,Jurgen,Alma,Hanne B">
+            <Name>Gambe-Patience,Vibeke,Jurgen,Alma,Hanne B</Name>
+          </Course>
+          <Course Id="gr_Gambe-Patience,Hanne J,Sven,Stine">
+            <Name>Gambe-Patience,Hanne J,Sven,Stine</Name>
+          </Course>
+          <Course Id="gr_Lut-Marie-Louise D,Eva,Sigrid,Marie-Louise R">
+            <Name>Lut-Marie-Louise D,Eva,Sigrid,Marie-Louise R</Name>
+          </Course>
+          <Course Id="gr_Vokal flere-Bodil,Lis H,Sine,Helle,Hanne B,Jens,Erik,Wolfgang,Sigurdur">
+            <Name>Vokal flere-Bodil,Lis H,Sine,Helle,Hanne B,Jens,Erik,Wolfgang,Sigurdur</Name>
+          </Course>
+          <Course Id="gr_Vokal een-Nina,Dorie,Johanne U,Michael S,Torben">
+            <Name>Vokal een-Nina,Dorie,Johanne U,Michael S,Torben</Name>
+          </Course>
+          <Course Id="gr_Vokal een-Karin,Magdalena,Helle,Jakob C-D,Sigurdur">
+            <Name>Vokal een-Karin,Magdalena,Helle,Jakob C-D,Sigurdur</Name>
+          </Course>
+          <EventGroup Id="gr_AllEvents">
+            <Name>AllEvents</Name>
+          </EventGroup>
+        </EventGroups>
+        <Event Id="Event1">
+          <Name>Air-Hanna,Mia,Sigrid,Nina,Michael F,Annika</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_Air-Hanna,Mia,Sigrid,Nina,Michael F,Annika"/>
+          <Resources>
+            <Resource Reference="Hanna"/>
+            <Resource Reference="Mia"/>
+            <Resource Reference="Sigrid"/>
+            <Resource Reference="Nina"/>
+            <Resource Reference="Michael F"/>
+            <Resource Reference="Annika"/>
+            <Resource Reference="Glenda"/>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+        <Event Id="Event2">
+          <Name>Air-Karin,Johanne M,Jurgen,Alma,Jens,Lisbeth,Dorie</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_Air-Karin,Johanne M,Jurgen,Alma,Jens,Lisbeth,Dorie"/>
+          <Resources>
+            <Resource Reference="Karin"/>
+            <Resource Reference="Johanne M"/>
+            <Resource Reference="Jurgen"/>
+            <Resource Reference="Alma"/>
+            <Resource Reference="Jens"/>
+            <Resource Reference="Lisbeth"/>
+            <Resource Reference="Dorie"/>
+            <Resource Reference="Glenda"/>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+        <Event Id="Event3">
+          <Name>Sangteknik-Anna-Maria,Astrid,Bjorn,Sigurdur,Erik,Lis H</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_Sangteknik-Anna-Maria,Astrid,Bjorn,Sigurdur,Erik,Lis H"/>
+          <Resources>
+            <Resource Reference="Anna-Maria"/>
+            <Resource Reference="Astrid"/>
+            <Resource Reference="Bjorn"/>
+            <Resource Reference="Sigurdur"/>
+            <Resource Reference="Erik"/>
+            <Resource Reference="Lis H"/>
+            <Resource Reference="Glenda"/>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+        <Event Id="Event4">
+          <Name>Vokal een-Mia,Annika,Johanne U,Jens,Torben</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_Vokal een-Mia,Annika,Johanne U,Jens,Torben"/>
+          <Resources>
+            <Resource Reference="Mia"/>
+            <Resource Reference="Annika"/>
+            <Resource Reference="Johanne U"/>
+            <Resource Reference="Jens"/>
+            <Resource Reference="Torben"/>
+            <Resource Reference="Glenda">
+              <Role>Teacher</Role>
+              <ResourceType Reference="Teacher"/>
+            </Resource>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+        <Event Id="Event5">
+          <Name>Bologna-Lene,Helga,Morten,Marta,Jakob F,Amanda,Torben</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_Bologna-Lene,Helga,Morten,Marta,Jakob F,Amanda,Torben"/>
+          <Resources>
+            <Resource Reference="Lene"/>
+            <Resource Reference="Helga"/>
+            <Resource Reference="Morten"/>
+            <Resource Reference="Marta"/>
+            <Resource Reference="Jakob F"/>
+            <Resource Reference="Amanda"/>
+            <Resource Reference="Torben"/>
+            <Resource Reference="Hans">
+              <Role>Teacher</Role>
+              <ResourceType Reference="Teacher"/>
+            </Resource>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+        <Event Id="Event6">
+          <Name>Venedig-Tore,Hanne S,Grethe,Lene,Ingeborg,Magdalena,Amanda,Nanna,Karen M,Ernst,Christine</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_Venedig-Tore,Hanne S,Grethe,Lene,Ingeborg,Magdalena,Amanda,Nanna,Karen M,Ernst,Christine"/>
+          <Resources>
+            <Resource Reference="Tore"/>
+            <Resource Reference="Hanne S"/>
+            <Resource Reference="Grethe"/>
+            <Resource Reference="Lene"/>
+            <Resource Reference="Ingeborg"/>
+            <Resource Reference="Magdalena"/>
+            <Resource Reference="Amanda"/>
+            <Resource Reference="Nanna"/>
+            <Resource Reference="Karen M"/>
+            <Resource Reference="Ernst"/>
+            <Resource Reference="Christine"/>
+            <Resource Reference="Hans">
+              <Role>Teacher</Role>
+              <ResourceType Reference="Teacher"/>
+            </Resource>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+        <Event Id="Event7">
+          <Name>Fl. komsammen-Filippa,Aase,Anna L,Joan</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_Fl. komsammen-Filippa,Aase,Anna L,Joan"/>
+          <Resources>
+            <Resource Reference="Filippa"/>
+            <Resource Reference="Aase"/>
+            <Resource Reference="Anna L"/>
+            <Resource Reference="Joan"/>
+            <Resource Reference="Ingrid">
+              <Role>Teacher</Role>
+              <ResourceType Reference="Teacher"/>
+            </Resource>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+        <Event Id="Event8">
+          <Name>CCR-Vibeke,Karen P,Kirsten,Inger Marie</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_CCR-Vibeke,Karen P,Kirsten,Inger Marie"/>
+          <Resources>
+            <Resource Reference="Vibeke"/>
+            <Resource Reference="Karen P"/>
+            <Resource Reference="Kirsten"/>
+            <Resource Reference="Inger Marie"/>
+            <Resource Reference="Ingrid">
+              <Role>Teacher</Role>
+              <ResourceType Reference="Teacher"/>
+            </Resource>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+        <Event Id="Event9">
+          <Name>CCR-Anna L,Dorte,Britta,Stine</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_CCR-Anna L,Dorte,Britta,Stine"/>
+          <Resources>
+            <Resource Reference="Anna L"/>
+            <Resource Reference="Dorte"/>
+            <Resource Reference="Britta"/>
+            <Resource Reference="Stine"/>
+            <Resource Reference="Ingrid">
+              <Role>Teacher</Role>
+              <ResourceType Reference="Teacher"/>
+            </Resource>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+        <Event Id="Event10">
+          <Name>Tyskland-Hanne S,Wolfgang,Laurie,Helga,Dorte,Lis Aa,Karen M,Mats</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_Tyskland-Hanne S,Wolfgang,Laurie,Helga,Dorte,Lis Aa,Karen M,Mats"/>
+          <Resources>
+            <Resource Reference="Hanne S"/>
+            <Resource Reference="Wolfgang"/>
+            <Resource Reference="Laurie"/>
+            <Resource Reference="Helga"/>
+            <Resource Reference="Dorte"/>
+            <Resource Reference="Lis Aa"/>
+            <Resource Reference="Karen M"/>
+            <Resource Reference="Mats"/>
+            <Resource Reference="Ingrid">
+              <Role>Teacher</Role>
+              <ResourceType Reference="Teacher"/>
+            </Resource>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+        <Event Id="Event11">
+          <Name>Sevilla-Tore,Jakob C-D,Ingeborg,Morten,Marta,Johanne U,Jakob F</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_Sevilla-Tore,Jakob C-D,Ingeborg,Morten,Marta,Johanne U,Jakob F"/>
+          <Resources>
+            <Resource Reference="Tore"/>
+            <Resource Reference="Jakob C-D"/>
+            <Resource Reference="Ingeborg"/>
+            <Resource Reference="Morten"/>
+            <Resource Reference="Marta"/>
+            <Resource Reference="Johanne U"/>
+            <Resource Reference="Jakob F"/>
+            <Resource Reference="TeacherJens">
+              <Role>Teacher</Role>
+              <ResourceType Reference="Teacher"/>
+            </Resource>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+        <Event Id="Event12">
+          <Name>Improvisation-Solvejg,Helge,Inger,Elisabeth</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_Improvisation-Solvejg,Helge,Inger,Elisabeth"/>
+          <Resources>
+            <Resource Reference="Solvejg"/>
+            <Resource Reference="Helge"/>
+            <Resource Reference="Inger"/>
+            <Resource Reference="Elisabeth"/>
+            <Resource Reference="TeacherJens">
+              <Role>Teacher</Role>
+              <ResourceType Reference="Teacher"/>
+            </Resource>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+        <Event Id="Event13">
+          <Name>Vokal een-Hanna,Nanna,Britta,Michael F,Bjorn</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_Vokal een-Hanna,Nanna,Britta,Michael F,Bjorn"/>
+          <Resources>
+            <Resource Reference="Hanna"/>
+            <Resource Reference="Nanna"/>
+            <Resource Reference="Britta"/>
+            <Resource Reference="Michael F"/>
+            <Resource Reference="Bjorn"/>
+            <Resource Reference="Joergen">
+              <Role>Teacher</Role>
+              <ResourceType Reference="Teacher"/>
+            </Resource>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+        <Event Id="Event14">
+          <Name>Dans-Katharina,Tine,Elisabeth,Johanne M,Karen P,Anna-Maria,Helge,Lisbeth</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_Dans-Katharina,Tine,Elisabeth,Johanne M,Karen P,Anna-Maria,Helge,Lisbeth"/>
+          <Resources>
+            <Resource Reference="Katharina"/>
+            <Resource Reference="Tine"/>
+            <Resource Reference="Elisabeth"/>
+            <Resource Reference="Johanne M"/>
+            <Resource Reference="Karen P"/>
+            <Resource Reference="Anna-Maria"/>
+            <Resource Reference="Helge"/>
+            <Resource Reference="Lisbeth"/>
+            <Resource Reference="Joergen">
+              <Role>Teacher</Role>
+              <ResourceType Reference="Teacher"/>
+            </Resource>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+        <Event Id="Event15">
+          <Name>Wien-Grethe,Sven,Inger,Astrid,Ernst,Mats</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_Wien-Grethe,Sven,Inger,Astrid,Ernst,Mats"/>
+          <Resources>
+            <Resource Reference="Grethe"/>
+            <Resource Reference="Sven"/>
+            <Resource Reference="Inger"/>
+            <Resource Reference="Astrid"/>
+            <Resource Reference="Ernst"/>
+            <Resource Reference="Mats"/>
+            <Resource Reference="Michael">
+              <Role>Teacher</Role>
+              <ResourceType Reference="Teacher"/>
+            </Resource>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+        <Event Id="Event16">
+          <Name>Oxford-Filippa,Solvejg,Laurie,Aase,Joan,Christine,Bodil,Sine,Elisabet</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_Oxford-Filippa,Solvejg,Laurie,Aase,Joan,Christine,Bodil,Sine,Elisabet"/>
+          <Resources>
+            <Resource Reference="Filippa"/>
+            <Resource Reference="Solvejg"/>
+            <Resource Reference="Laurie"/>
+            <Resource Reference="Aase"/>
+            <Resource Reference="Joan"/>
+            <Resource Reference="Christine"/>
+            <Resource Reference="Bodil"/>
+            <Resource Reference="Sine"/>
+            <Resource Reference="Elisabet"/>
+            <Resource Reference="Michael">
+              <Role>Teacher</Role>
+              <ResourceType Reference="Teacher"/>
+            </Resource>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+        <Event Id="Event17">
+          <Name>Beg. Blaes-Helle</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_Beg. Blaes-Helle"/>
+          <Resources>
+            <Resource Reference="Helle"/>
+            <Resource Reference="Michael">
+              <Role>Teacher</Role>
+              <ResourceType Reference="Teacher"/>
+            </Resource>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+        <Event Id="Event18">
+          <Name>Gambe-Gesa,Elisabeth,Eva,Lis Aa,Kirsten,Inger Marie</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_Gambe-Gesa,Elisabeth,Eva,Lis Aa,Kirsten,Inger Marie"/>
+          <Resources>
+            <Resource Reference="Gesa"/>
+            <Resource Reference="Elisabeth"/>
+            <Resource Reference="Eva"/>
+            <Resource Reference="Lis Aa"/>
+            <Resource Reference="Kirsten"/>
+            <Resource Reference="Inger Marie"/>
+            <Resource Reference="Oliver">
+              <Role>Teacher</Role>
+              <ResourceType Reference="Teacher"/>
+            </Resource>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+        <Event Id="Event19">
+          <Name>Gambe-Tine,Marie-Louise D</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_Gambe-Tine,Marie-Louise D"/>
+          <Resources>
+            <Resource Reference="Tine"/>
+            <Resource Reference="Marie-Louise D"/>
+            <Resource Reference="Oliver">
+              <Role>Teacher</Role>
+              <ResourceType Reference="Teacher"/>
+            </Resource>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+        <Event Id="Event20">
+          <Name>Gambe-Patience,Vibeke,Jurgen,Alma,Hanne B</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_Gambe-Patience,Vibeke,Jurgen,Alma,Hanne B"/>
+          <Resources>
+            <Resource Reference="Patience"/>
+            <Resource Reference="Vibeke"/>
+            <Resource Reference="Jurgen"/>
+            <Resource Reference="Alma"/>
+            <Resource Reference="Hanne B"/>
+            <Resource Reference="Oliver">
+              <Role>Teacher</Role>
+              <ResourceType Reference="Teacher"/>
+            </Resource>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+        <Event Id="Event21">
+          <Name>Gambe-Patience,Hanne J,Sven,Stine</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_Gambe-Patience,Hanne J,Sven,Stine"/>
+          <Resources>
+            <Resource Reference="Patience"/>
+            <Resource Reference="Hanne J"/>
+            <Resource Reference="Sven"/>
+            <Resource Reference="Stine"/>
+            <Resource Reference="Oliver">
+              <Role>Teacher</Role>
+              <ResourceType Reference="Teacher"/>
+            </Resource>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+        <Event Id="Event22">
+          <Name>Lut-Marie-Louise D,Eva,Sigrid,Marie-Louise R</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_Lut-Marie-Louise D,Eva,Sigrid,Marie-Louise R"/>
+          <Resources>
+            <Resource Reference="Marie-Louise D"/>
+            <Resource Reference="Eva"/>
+            <Resource Reference="Sigrid"/>
+            <Resource Reference="Marie-Louise R"/>
+            <Resource Reference="Per">
+              <Role>Teacher</Role>
+              <ResourceType Reference="Teacher"/>
+            </Resource>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+        <Event Id="Event23">
+          <Name>Vokal flere-Bodil,Lis H,Sine,Helle,Hanne B,Jens,Erik,Wolfgang,Sigurdur</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_Vokal flere-Bodil,Lis H,Sine,Helle,Hanne B,Jens,Erik,Wolfgang,Sigurdur"/>
+          <Resources>
+            <Resource Reference="Bodil"/>
+            <Resource Reference="Lis H"/>
+            <Resource Reference="Sine"/>
+            <Resource Reference="Helle"/>
+            <Resource Reference="Hanne B"/>
+            <Resource Reference="Jens"/>
+            <Resource Reference="Erik"/>
+            <Resource Reference="Wolfgang"/>
+            <Resource Reference="Sigurdur"/>
+            <Resource Reference="Ute">
+              <Role>Teacher</Role>
+              <ResourceType Reference="Teacher"/>
+            </Resource>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+        <Event Id="Event24">
+          <Name>Vokal een-Nina,Dorie,Johanne U,Michael S,Torben</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_Vokal een-Nina,Dorie,Johanne U,Michael S,Torben"/>
+          <Resources>
+            <Resource Reference="Nina"/>
+            <Resource Reference="Dorie"/>
+            <Resource Reference="Johanne U"/>
+            <Resource Reference="Michael S"/>
+            <Resource Reference="Torben"/>
+            <Resource Reference="Ute">
+              <Role>Teacher</Role>
+              <ResourceType Reference="Teacher"/>
+            </Resource>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+        <Event Id="Event25">
+          <Name>Vokal een-Karin,Magdalena,Helle,Jakob C-D,Sigurdur</Name>
+          <Duration>1</Duration>
+          <Course Reference="gr_Vokal een-Karin,Magdalena,Helle,Jakob C-D,Sigurdur"/>
+          <Resources>
+            <Resource Reference="Karin"/>
+            <Resource Reference="Magdalena"/>
+            <Resource Reference="Helle"/>
+            <Resource Reference="Jakob C-D"/>
+            <Resource Reference="Sigurdur"/>
+            <Resource Reference="Ute">
+              <Role>Teacher</Role>
+              <ResourceType Reference="Teacher"/>
+            </Resource>
+          </Resources>
+          <ResourceGroups/>
+          <EventGroups>
+            <EventGroup Reference="gr_AllEvents"/>
+          </EventGroups>
+        </Event>
+      </Events>
+      <Constraints>
+        <AssignTimeConstraint Id="AssignTimes_1">
+          <Name>AssignTimes</Name>
+          <Required>true</Required>
+          <Weight>1</Weight>
+          <CostFunction>Sum</CostFunction>
+          <AppliesTo>
+            <EventGroups>
+              <EventGroup Reference="gr_AllEvents"/>
+            </EventGroups>
+          </AppliesTo>
+        </AssignTimeConstraint>
+        <PreferTimesConstraint Id="PreferTimes_3">
+          <Name>PreferTimes_Event18</Name>
+          <Required>false</Required>
+          <Weight>1</Weight>
+          <CostFunction>Sum</CostFunction>
+          <AppliesTo>
+            <Events>
+              <Event Reference="Event18"/>
+            </Events>
+          </AppliesTo>
+          <Times>
+            <Time Reference="Daily_13.30 - 14.30"/>
+          </Times>
+        </PreferTimesConstraint>
+        <PreferTimesConstraint Id="PreferTimes_4">
+          <Name>PreferTimes_Event19</Name>
+          <Required>false</Required>
+          <Weight>1</Weight>
+          <CostFunction>Sum</CostFunction>
+          <AppliesTo>
+            <Events>
+              <Event Reference="Event19"/>
+            </Events>
+          </AppliesTo>
+          <Times>
+            <Time Reference="Daily_14.40 - 15.40"/>
+          </Times>
+        </PreferTimesConstraint>
+        <PreferTimesConstraint Id="PreferTimes_5">
+          <Name>PreferTimes_Event20</Name>
+          <Required>false</Required>
+          <Weight>1</Weight>
+          <CostFunction>Sum</CostFunction>
+          <AppliesTo>
+            <Events>
+              <Event Reference="Event20"/>
+            </Events>
+          </AppliesTo>
+          <Times>
+            <Time Reference="Daily_15.50 - 16.50"/>
+          </Times>
+        </PreferTimesConstraint>
+        <PreferTimesConstraint Id="PreferTimes_6">
+          <Name>PreferTimes_Event21</Name>
+          <Required>false</Required>
+          <Weight>1</Weight>
+          <CostFunction>Sum</CostFunction>
+          <AppliesTo>
+            <Events>
+              <Event Reference="Event21"/>
+            </Events>
+          </AppliesTo>
+          <Times>
+            <Time Reference="Daily_17.00 - 18.00"/>
+          </Times>
+        </PreferTimesConstraint>
+        <AvoidClashesConstraint Id="NoResourceClashes_7">
+          <Name>NoResourceClashes</Name>
+          <Required>true</Required>
+          <Weight>1</Weight>
+          <CostFunction>Sum</CostFunction>
+          <AppliesTo>
+            <ResourceGroups>
+              <ResourceGroup Reference="gr_Students"/>
+              <ResourceGroup Reference="gr_Teachers"/>
+            </ResourceGroups>
+          </AppliesTo>
+        </AvoidClashesConstraint>
+      </Constraints>
+    </Instance>
+  </Instances>
+  <SolutionGroups>
+    <SolutionGroup Id="MathijsTerBraak_2012-03-14">
+      <MetaData>
+        <Contributor>Utwente</Contributor>
+        <Date>March 14, 2012</Date>
+        <Description>Mathijs ter Braak, Universiteit Twente</Description>
+      </MetaData>
+      <Solution Reference="DenmarkSmallSchool_XHSTT2013">
+        <Events>
+          <Event Reference="Event1">
+            <Duration>1</Duration>
+            <Time Reference="Daily_13.30 - 14.30"/>
+          </Event>
+          <Event Reference="Event2">
+            <Duration>1</Duration>
+            <Time Reference="Daily_14.40 - 15.40"/>
+          </Event>
+          <Event Reference="Event3">
+            <Duration>1</Duration>
+            <Time Reference="Daily_17.00 - 18.00"/>
+          </Event>
+          <Event Reference="Event4">
+            <Duration>1</Duration>
+            <Time Reference="Daily_15.50 - 16.50"/>
+          </Event>
+          <Event Reference="Event5">
+            <Duration>1</Duration>
+            <Time Reference="Daily_13.30 - 14.30"/>
+          </Event>
+          <Event Reference="Event6">
+            <Duration>1</Duration>
+            <Time Reference="Daily_17.00 - 18.00"/>
+          </Event>
+          <Event Reference="Event7">
+            <Duration>1</Duration>
+            <Time Reference="Daily_13.30 - 14.30"/>
+          </Event>
+          <Event Reference="Event8">
+            <Duration>1</Duration>
+            <Time Reference="Daily_17.00 - 18.00"/>
+          </Event>
+          <Event Reference="Event9">
+            <Duration>1</Duration>
+            <Time Reference="Daily_15.50 - 16.50"/>
+          </Event>
+          <Event Reference="Event10">
+            <Duration>1</Duration>
+            <Time Reference="Daily_14.40 - 15.40"/>
+          </Event>
+          <Event Reference="Event11">
+            <Duration>1</Duration>
+            <Time Reference="Daily_14.40 - 15.40"/>
+          </Event>
+          <Event Reference="Event12">
+            <Duration>1</Duration>
+            <Time Reference="Daily_17.00 - 18.00"/>
+          </Event>
+          <Event Reference="Event13">
+            <Duration>1</Duration>
+            <Time Reference="Daily_14.40 - 15.40"/>
+          </Event>
+          <Event Reference="Event14">
+            <Duration>1</Duration>
+            <Time Reference="Daily_15.50 - 16.50"/>
+          </Event>
+          <Event Reference="Event15">
+            <Duration>1</Duration>
+            <Time Reference="Daily_13.30 - 14.30"/>
+          </Event>
+          <Event Reference="Event16">
+            <Duration>1</Duration>
+            <Time Reference="Daily_15.50 - 16.50"/>
+          </Event>
+          <Event Reference="Event17">
+            <Duration>1</Duration>
+            <Time Reference="Daily_14.40 - 15.40"/>
+          </Event>
+          <Event Reference="Event18">
+            <Duration>1</Duration>
+            <Time Reference="Daily_13.30 - 14.30"/>
+          </Event>
+          <Event Reference="Event19">
+            <Duration>1</Duration>
+            <Time Reference="Daily_14.40 - 15.40"/>
+          </Event>
+          <Event Reference="Event20">
+            <Duration>1</Duration>
+            <Time Reference="Daily_15.50 - 16.50"/>
+          </Event>
+          <Event Reference="Event21">
+            <Duration>1</Duration>
+            <Time Reference="Daily_17.00 - 18.00"/>
+          </Event>
+          <Event Reference="Event22">
+            <Duration>1</Duration>
+            <Time Reference="Daily_15.50 - 16.50"/>
+          </Event>
+          <Event Reference="Event23">
+            <Duration>1</Duration>
+            <Time Reference="Daily_13.30 - 14.30"/>
+          </Event>
+          <Event Reference="Event24">
+            <Duration>1</Duration>
+            <Time Reference="Daily_17.00 - 18.00"/>
+          </Event>
+          <Event Reference="Event25">
+            <Duration>1</Duration>
+            <Time Reference="Daily_15.50 - 16.50"/>
+          </Event>
+        </Events>
+      </Solution>
+    </SolutionGroup>
+  </SolutionGroups>
+</HighSchoolTimetableArchive>
