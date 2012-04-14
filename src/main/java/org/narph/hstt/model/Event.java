@@ -24,7 +24,7 @@ public class Event extends ConstraintEntity {
     private String color;
 
     @Basic
-    private String duration;
+    private int duration;
 
     @Basic
     private int workload;
@@ -68,11 +68,11 @@ public class Event extends ConstraintEntity {
         this.color = color;
     }
 
-    public String getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(String duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 

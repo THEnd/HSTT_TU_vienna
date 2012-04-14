@@ -14,6 +14,8 @@ import org.w3c.dom.NodeList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -94,7 +96,6 @@ public class DOMParserHSTT implements ImportService {
                                     instance.setId(instanceElement.getAttribute("Id"));
                                     LOGGER.debug(" has interface: " + (instanceDAO != null ) );
                                     instanceDAO.create(instance);
-                                    //TODO save()
                                 }
                             }
                             NodeList infoNodes = instanceNodes.item(i).getChildNodes();
@@ -195,8 +196,6 @@ public class DOMParserHSTT implements ImportService {
                             type.setId(typeElement.getAttribute("Id"));
                             type.setInstance(instance);
                             type.setName(getElementTextByName(typeElement,"Name"));
-                            //TODO read
-                            //TODO save()
                             resourceTypeDAO.create(type);
                         }
                     }
@@ -210,18 +209,25 @@ public class DOMParserHSTT implements ImportService {
                             group.setId(groupElement.getAttribute("Id"));
                             group.setInstance(instance);
                             group.setName(getElementTextByName(groupElement, "Name"));
-                            //TODO read
-                            //TODO save()
+                            group.setType(resourceTypeDAO.getById(getElementAttributeByNames(groupElement, "ResourceType", "Reference")));
                             resourceGroupDAO.create(group);
                         }
                     }
                 } else if (resourceElement.getTagName().equals("Resource")) {
-                    LOGGER.debug("DOM - reading Resource: " + resourceElement.getAttribute("Id"));
+                    LOGGER.debug("DOM - reading Resource: " + resourceElement.getAttribute("Id") + " type " + getElementAttributeByNames(resourceElement, "ResourceType", "Reference"));
                     Resource resource = new Resource();
                     resource.setId(resourceElement.getAttribute("Id"));
                     resource.setInstance(instance);
                     resource.setName(getElementTextByName(resourceElement, "Name"));
-                    resource.setType(resourceTypeDAO.getById(getElementTextByName(resourceElement, "ResourceType")));
+                    resource.setType(resourceTypeDAO.getById(getElementAttributeByNames(resourceElement, "ResourceType", "Reference")));
+                    List<ResourceGroup> groupList = new ArrayList<ResourceGroup>();
+                    NodeList nl = resourceElement.getChildNodes();
+                    for(int l=0; l<nl.getLength(); l++) {
+                        if(nl.item(l) instanceof Element) {
+                            Element el = (Element) nl.item(l);
+
+                        }
+                    }
                     //TODO read
                     //TODO save()
                     resourceDAO.create(resource);
@@ -242,19 +248,34 @@ public class DOMParserHSTT implements ImportService {
                         if(groupList.item(g) instanceof Element) {
                             Element groupElement = (Element) groupList.item(g);
                             LOGGER.debug("DOM - reading EventGroup: " + groupElement.getAttribute("Id"));
+
                             EventGroup group = new EventGroup();
                             group.setId(groupElement.getAttribute("Id"));
                             group.setInstance(instance);
-                            //TODO read
-                            //TODO save()
-                            eventGroupDAO.create(group);
+                            group.setName(getElementTextByName(groupElement, "Name"));
+                            if(groupElement.getTagName().equals("EventGroup")) {
+                                eventGroupDAO.create(group);
+                            } else if (groupElement.getTagName().equals("Course")) {
+                                Course c = new Course();
+                                c.setId(group.getId());
+                                c.setInstance(group.getInstance());
+                                c.setName(group.getName());
+                                c.setEvents(group.getEvents());
+                                c.setConstraints(group.getConstraints());
+                                courseDAO.create(c);
+                            }
                         }
                     }
                 } else if (eventElement.getTagName().equals("Event")) {
                     LOGGER.debug("DOM - reading Event: " + eventElement.getAttribute("Id"));
                     Event event = new Event();
                     event.setId(eventElement.getAttribute("Id"));
+                    if(eventElement.hasAttribute("Color")) {
+                        event.setColor(eventElement.getAttribute("Color"));
+                    }
                     event.setInstance(instance);
+                    event.setName(getElementTextByName(eventElement, "Name"));
+                    event.setDuration(Integer.getInteger(getElementTextByName(eventElement, "Duration")));
                     //TODO read
                     //TODO save()
                     eventDAO.create(event);
@@ -279,6 +300,14 @@ public class DOMParserHSTT implements ImportService {
     private String getElementTextByName(Element element, String name) {
         if(element.getElementsByTagName(name).getLength()>0) {
             return element.getElementsByTagName(name).item(0).getTextContent();
+        }
+        return "";
+    }
+
+    private String getElementAttributeByNames(Element element, String eName, String aName) {
+        if(element.getElementsByTagName(eName).getLength()>0) {
+            Element e = (Element) element.getElementsByTagName(eName).item(0);
+            return e.getAttribute(aName);
         }
         return "";
     }

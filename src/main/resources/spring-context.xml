@@ -18,7 +18,6 @@
               http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
 
     <context:annotation-config />
-    <context:component-scan base-package="org.narph.hstt.model" />
     <context:component-scan base-package="org.narph.hstt.dao" />
     <context:component-scan base-package="org.narph.hstt.service" />
 
@@ -43,8 +42,8 @@
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
-                <prop key="hibernate.show_sql">true</prop>
-                <prop key="hibernate.hbm2ddl.auto">validate</prop>
+                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.hbm2ddl.auto">create-drop</prop>
             </props>
         </property>
         <property name="annotatedClasses">

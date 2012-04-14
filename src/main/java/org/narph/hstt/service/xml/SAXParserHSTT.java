@@ -2,7 +2,6 @@ package org.narph.hstt.service.xml;
 
 import org.apache.log4j.Logger;
 import org.narph.hstt.service.ImportService;
-import org.springframework.stereotype.Service;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
@@ -15,7 +14,6 @@ import java.io.FileReader;
  * Date: 08.04.12
  * Time: 17:20
  */
-@Service
 public class SAXParserHSTT implements ImportService {
 
     private static final Logger LOGGER = Logger.getLogger("hstt_import");
