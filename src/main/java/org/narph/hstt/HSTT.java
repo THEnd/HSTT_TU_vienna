@@ -29,8 +29,8 @@ public class HSTT {
             LOGGER.error(" " + e.getLocalizedMessage());
         }
 
-        //process("examples\\BrazilInstance1.xml");
-        process("examples\\EnglandStPaul.xml");
+        process("examples\\BrazilInstance1.xml");
+        //process("examples\\EnglandStPaul.xml");
 
         LOGGER.info("shut down, bye bye");
     }

@@ -275,7 +275,28 @@ public class DOMParserHSTT implements ImportService {
                     }
                     event.setInstance(instance);
                     event.setName(getElementTextByName(eventElement, "Name"));
-                    event.setDuration(Integer.getInteger(getElementTextByName(eventElement, "Duration")));
+                    int d = Integer.parseInt(getElementTextByName(eventElement, "Duration"));
+                    event.setDuration(d);
+                    NodeList subNodes = eventElement.getChildNodes();
+                    for(int s=0; s<subNodes.getLength(); s++) {
+                        if(subNodes.item(s) instanceof Element) {
+                            Element subElement = (Element) subNodes.item(s);
+                        if (subElement.getTagName().equals("Workload")) {
+                            d = Integer.parseInt(getElementTextByName(subElement, "Workload"));
+                            event.setWorkload(d);
+                        } else if(subElement.getTagName().equals("Course")) {
+                            event.setCourse(courseDAO.getById(subElement.getAttribute("Reference")));
+                        } else if (subElement.getTagName().equals("Time")) {
+                            event.setTime(timeDAO.getById(subElement.getAttribute("Reference")));
+                        } else if (subElement.getTagName().equals("Resources")) {
+
+                        } else if (subElement.getTagName().equals("ResourceGroups")) {
+
+                        } else if (subElement.getTagName().equals("EventGroups")) {
+
+                        }
+                        }
+                    }
                     //TODO read
                     //TODO save()
                     eventDAO.create(event);
