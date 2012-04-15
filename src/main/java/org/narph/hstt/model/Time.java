@@ -24,7 +24,7 @@ public class Time implements Serializable {
     @Basic
     private String name;
 
-    @ManyToMany(mappedBy = "times")
+    @ManyToMany(mappedBy = "times", cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<TimeGroup> group = new ArrayList<TimeGroup>();
 

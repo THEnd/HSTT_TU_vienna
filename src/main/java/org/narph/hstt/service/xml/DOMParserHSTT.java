@@ -176,11 +176,26 @@ public class DOMParserHSTT implements ImportService {
                     time.setId(element.getAttribute("Id"));
                     time.setInstance(instance);
                     time.setName(getElementTextByName(element,"Name"));
-
-                    //TODO time reading
-                    //TODO save()
                     LOGGER.debug("DOM - saving Time: " + time.toString());
                     timeDAO.create(time);
+                    if(element.getElementsByTagName("Week").getLength()>0) {
+                        time.setWeek(getElementAttributeByNames(element,"Week","Reference"));
+                    }
+                    if(element.getElementsByTagName("Day").getLength()>0) {
+                        time.setWeek(getElementAttributeByNames(element,"Day","Reference"));
+                    }
+                    if(element.getElementsByTagName("TimeGroups").getLength()>0) {
+                        NodeList nl = element.getElementsByTagName("TimeGroups").item(0).getChildNodes();
+                        for(int i=0; i<nl.getLength(); i++) {
+                            if(nl.item(i) instanceof Element) {
+                                Element e = (Element) nl.item(i);
+                                TimeGroup group = timeGroupDAO.getById(e.getAttribute("Reference"));
+                                group.addTime(time);
+                                time.addTimeGroup(group);
+                            }
+                        }
+                    }
+                    timeDAO.update(time);
                 }
             }
         }

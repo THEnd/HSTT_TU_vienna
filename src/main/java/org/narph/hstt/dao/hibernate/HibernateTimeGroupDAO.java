@@ -91,4 +91,16 @@ public class HibernateTimeGroupDAO implements TimeGroupDAO {
         }
         return null;
     }
+
+    public List<TimeGroup> getByType(TimeGroup.TimeGroupType type) throws DataAccessException {
+        LOGGER.debug("try searching all");
+        try {
+            Session session = sessionFactory.getCurrentSession();
+            List<TimeGroup> result = session.getNamedQuery("getByType").setParameter("type", type).list();
+            return result;
+        } catch (Exception e) {
+            LOGGER.error("could not search all");
+        }
+        return null;
+    }
 }

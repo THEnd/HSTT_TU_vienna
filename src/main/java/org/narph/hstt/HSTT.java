@@ -36,7 +36,7 @@ public class HSTT {
         //process("examples\\BrazilInstance1.xml");
         //process("examples\\EnglandStPaul.xml");
         String in_file = "examples\\FinlandCollege.xml";
-        String out_file = "examples\\BrazilInstance1.xml";
+        String out_file = "examples\\FinlandCollege.xml";
 
         for(int i=0; i<args.length; i++) {
             if(args[i].equals("-i")) {

@@ -15,6 +15,12 @@ import java.util.List;
  * Time: 18:08
  */
 @Entity
+@NamedQueries(
+        @NamedQuery(
+                name = "getByType",
+                query = "SELECT t FROM TimeGroup t WHERE t.type = :type"
+        )
+)
 public class TimeGroup implements Serializable {
 
     private static final long serialVersionUID = 8885560587821197245L;
