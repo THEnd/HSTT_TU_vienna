@@ -434,14 +434,17 @@ public class DOMParserHSTT implements ImportService {
                 constraint.setWeight(d);
                 Constraint.CostFunction cf = Constraint.CostFunction.valueOf(getElementTextByName(constraintElement, "CostFunction"));
                 constraint.setCostFunction(cf);
-                constraint.setRequired(getElementTextByName(constraintElement,"Required").equals(true));
-
-                String constraintType = constraintElement.getTagName();
-
+                constraint.setRequired(getElementTextByName(constraintElement,"Required").equals("true"));
+                constraint.setType(Constraint.ConstraintType.valueOf(constraintElement.getTagName()));
+                //String constraintType = constraintElement.getTagName();
                 constraintDAO.create(constraint);
 
-                //TODO
-
+                //TODO read Events
+                //TODO read EventGroups
+                //TODO read Times
+                //TODO read TimeGroups
+                //TODO read Resources
+                //TODO read ResourceGroups
             }
         }
     }

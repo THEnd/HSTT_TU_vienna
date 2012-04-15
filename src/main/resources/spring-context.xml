@@ -61,6 +61,7 @@
                 <value>org.narph.hstt.model.ResourceGroup</value>
                 <value>org.narph.hstt.model.Time</value>
                 <value>org.narph.hstt.model.TimeGroup</value>
+                <!--
                 <value>org.narph.hstt.model.constraint.AssignResourceConstraint</value>
                 <value>org.narph.hstt.model.constraint.AssignTimeConstraint</value>
                 <value>org.narph.hstt.model.constraint.AvoidClashesConstraint</value>
@@ -76,6 +77,7 @@
                 <value>org.narph.hstt.model.constraint.PreferTimesConstraint</value>
                 <value>org.narph.hstt.model.constraint.SplitEventsConstraint</value>
                 <value>org.narph.hstt.model.constraint.SpreadEventsConstraint</value>
+                -->
             </list>
         </property>
     </bean>
