@@ -31,7 +31,14 @@ public class TimeGroup implements Serializable {
     @ManyToOne(optional = false)
     private Instance instance;
 
+    @Basic
+    private TimeGroupType type;
 
+    public enum TimeGroupType {
+        TIMEGROUP,
+        DAY,
+        WEEK
+    }
 
     public List<Time> getTimes() {
         return times;
@@ -71,6 +78,14 @@ public class TimeGroup implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public TimeGroupType getType() {
+        return type;
+    }
+
+    public void setType(TimeGroupType type) {
+        this.type = type;
     }
 
     @Override

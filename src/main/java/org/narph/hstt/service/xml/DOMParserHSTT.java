@@ -164,6 +164,9 @@ public class DOMParserHSTT implements ImportService {
                             timeGroup.setInstance(instance);
                             timeGroup.setName(getElementTextByName(groupElement,"Name"));
                             LOGGER.debug("DOM - saving TimeGroup: " + timeGroup.toString());
+                            if (groupElement.getTagName().equals("TimeGroup")) timeGroup.setType(TimeGroup.TimeGroupType.TIMEGROUP);
+                            if (groupElement.getTagName().equals("Day")) timeGroup.setType(TimeGroup.TimeGroupType.DAY);
+                            if (groupElement.getTagName().equals("Week")) timeGroup.setType(TimeGroup.TimeGroupType.WEEK);
                             timeGroupDAO.create(timeGroup);
                         }
                     }
