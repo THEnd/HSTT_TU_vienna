@@ -2,7 +2,8 @@ package org.narph.hstt.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,18 +22,18 @@ public class TimeGroup implements Serializable {
     private String name;
 
     @ManyToMany
-    private Collection<Time> times;
+    private List<Time> times  = new ArrayList<Time>();
 
     @ManyToOne(optional = false)
     private Instance instance;
 
 
 
-    public Collection<Time> getTimes() {
+    public List<Time> getTimes() {
         return times;
     }
 
-    public void setTimes(Collection<Time> times) {
+    public void setTimes(List<Time> times) {
         this.times = times;
     }
 

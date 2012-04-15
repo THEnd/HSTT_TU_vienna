@@ -44,6 +44,19 @@ public class HibernateInstanceDAO implements InstanceDAO {
         return 0;
     }
 
+    public int update(Instance _obj) throws DataAccessException {
+        LOGGER.debug("try updating " + _obj);
+        try {
+            Session session = sessionFactory.getCurrentSession();
+            session.update(_obj);
+            session.flush();
+            return 1;
+        } catch (Exception e) {
+            LOGGER.error("could not update " + _obj + ", " + e);
+        }
+        return 0;
+    }
+
     public boolean delete(Instance _obj) throws DataAccessException {
         LOGGER.debug("try deleting " + _obj);
         try {

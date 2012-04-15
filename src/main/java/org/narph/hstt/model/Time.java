@@ -2,7 +2,8 @@ package org.narph.hstt.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,7 +22,7 @@ public class Time implements Serializable {
     private String name;
 
     @ManyToMany(mappedBy = "times")
-    private Collection<TimeGroup> group;
+    private List<TimeGroup> group = new ArrayList<TimeGroup>();
 
     @ManyToOne(optional = false)
     private Instance instance;
@@ -31,11 +32,11 @@ public class Time implements Serializable {
     @Basic
     private String day;
 
-    public Collection<TimeGroup> getGroup() {
+    public List<TimeGroup> getGroup() {
         return group;
     }
 
-    public void setGroup(Collection<TimeGroup> group) {
+    public void setGroup(List<TimeGroup> group) {
         this.group = group;
     }
 

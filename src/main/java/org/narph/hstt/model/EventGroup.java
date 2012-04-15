@@ -1,7 +1,8 @@
 package org.narph.hstt.model;
 
 import javax.persistence.*;
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -36,14 +37,14 @@ public class EventGroup extends ConstraintEntity {
         this.name = name;
     }
 
-    @ManyToMany
-    private Collection<Event> events;
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    private List<Event> events = new ArrayList<Event>();
 
-    public Collection<Event> getEvents() {
+    public List<Event> getEvents() {
         return events;
     }
 
-    public void setEvents(Collection<Event> events) {
+    public void setEvents(List<Event> events) {
         this.events = events;
     }
 

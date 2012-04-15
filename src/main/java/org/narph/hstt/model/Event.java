@@ -1,7 +1,8 @@
 package org.narph.hstt.model;
 
 import javax.persistence.*;
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -32,17 +33,17 @@ public class Event extends ConstraintEntity {
     @ManyToOne
     private Time time;
 
-    @ManyToMany(mappedBy = "events")
-    private Collection<EventGroup> groups;
+    @ManyToMany(cascade = CascadeType.PERSIST, mappedBy = "events")
+    private List<EventGroup> groups = new ArrayList<EventGroup>();
 
     @OneToOne
     private Course course;
 
     @OneToMany(mappedBy = "event")
-    private Collection<EventResource> resources;
+    private List<EventResource> resources = new ArrayList<EventResource>();
 
     @ManyToMany
-    private Collection<ResourceGroup> resourcegroups;
+    private List<ResourceGroup> resourcegroups = new ArrayList<ResourceGroup>();
 
     public String getId() {
         return id;
@@ -92,11 +93,11 @@ public class Event extends ConstraintEntity {
         this.time = time;
     }
 
-    public Collection<EventGroup> getGroups() {
+    public List<EventGroup> getGroups() {
         return groups;
     }
 
-    public void setGroups(Collection<EventGroup> groups) {
+    public void setGroups(List<EventGroup> groups) {
         this.groups = groups;
     }
 
@@ -108,19 +109,19 @@ public class Event extends ConstraintEntity {
         this.course = course;
     }
 
-    public Collection<EventResource> getResources() {
+    public List<EventResource> getResources() {
         return resources;
     }
 
-    public void setResources(Collection<EventResource> resources) {
+    public void setResources(List<EventResource> resources) {
         this.resources = resources;
     }
 
-    public Collection<ResourceGroup> getResourcegroups() {
+    public List<ResourceGroup> getResourcegroups() {
         return resourcegroups;
     }
 
-    public void setResourcegroups(Collection<ResourceGroup> resourcegroups) {
+    public void setResourcegroups(List<ResourceGroup> resourcegroups) {
         this.resourcegroups = resourcegroups;
     }
 

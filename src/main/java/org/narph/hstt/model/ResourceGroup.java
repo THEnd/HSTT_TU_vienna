@@ -18,7 +18,13 @@ public class ResourceGroup extends ConstraintEntity {
     private String id;
 
     @ManyToMany
-    private List<Resource> resources;
+    private List<Resource> resources = new ArrayList<Resource>();
+
+    @Basic
+    private String name;
+
+    @ManyToOne(optional = false)
+    private ResourceType type;
 
     public List<Resource> getResources() {
         return resources;
@@ -28,7 +34,6 @@ public class ResourceGroup extends ConstraintEntity {
         this.resources = resources;
     }
 
-
     public String getId() {
         return id;
     }
@@ -37,9 +42,6 @@ public class ResourceGroup extends ConstraintEntity {
         this.id = id;
     }
 
-    private String name;
-
-    @Basic
     public String getName() {
         return name;
     }
@@ -48,9 +50,6 @@ public class ResourceGroup extends ConstraintEntity {
         this.name = name;
     }
 
-    private ResourceType type;
-
-    @ManyToOne(optional = false)
     public ResourceType getType() {
         return type;
     }

@@ -1,6 +1,7 @@
 package org.narph.hstt.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,6 +18,17 @@ public class Resource extends ConstraintEntity {
     @Id
     private String id;
 
+    @Basic
+    private String name;
+
+    @ManyToMany(mappedBy = "resources", cascade = {CascadeType.ALL})
+    private List<ResourceGroup> groups = new ArrayList<ResourceGroup>();
+
+
+    @ManyToOne(optional = false)
+    private ResourceType type;
+
+
     public String getId() {
         return id;
     }
@@ -24,9 +36,6 @@ public class Resource extends ConstraintEntity {
     public void setId(String id) {
         this.id = id;
     }
-
-    @ManyToOne(optional = false)
-    private ResourceType type;
 
     public ResourceType getType() {
         return type;
@@ -36,9 +45,6 @@ public class Resource extends ConstraintEntity {
         this.type = type;
     }
 
-    @Basic
-    private String name;
-
     public String getName() {
         return name;
     }
@@ -46,9 +52,6 @@ public class Resource extends ConstraintEntity {
     public void setName(String name) {
         this.name = name;
     }
-
-    @ManyToMany(mappedBy = "resources")
-    private List<ResourceGroup> groups;
 
     public List<ResourceGroup> getGroups() {
         return groups;

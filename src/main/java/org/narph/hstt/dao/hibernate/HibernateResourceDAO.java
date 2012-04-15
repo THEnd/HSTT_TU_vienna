@@ -31,11 +31,25 @@ public class HibernateResourceDAO implements ResourceDAO {
         LOGGER.debug("try saving " + _obj);
         try {
             Session session = sessionFactory.getCurrentSession();
+            //session.persist(_obj);
             session.save(_obj);
             session.flush();
             return 1;
         } catch (Exception e) {
             LOGGER.error("could not save " + _obj + ", " + e);
+        }
+        return 0;
+    }
+
+    public int update(Resource _obj) throws DataAccessException {
+        LOGGER.debug("try updating " + _obj);
+        try {
+            Session session = sessionFactory.getCurrentSession();
+            session.update(_obj);
+            session.flush();
+            return 1;
+        } catch (Exception e) {
+            LOGGER.error("could not update " + _obj + ", " + e);
         }
         return 0;
     }

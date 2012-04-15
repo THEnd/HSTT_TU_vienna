@@ -4,6 +4,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ public abstract class ConstraintEntity implements Serializable{
     private static final long serialVersionUID = 69992103831661416L;
 
     @ManyToMany
-    private List<Constraint> constraints;
+    private List<Constraint> constraints  = new ArrayList<Constraint>();
 
 
     public List<Constraint> getConstraints() {

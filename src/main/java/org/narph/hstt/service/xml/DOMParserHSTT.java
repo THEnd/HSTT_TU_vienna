@@ -220,6 +220,7 @@ public class DOMParserHSTT implements ImportService {
                     resource.setInstance(instance);
                     resource.setName(getElementTextByName(resourceElement, "Name"));
                     resource.setType(resourceTypeDAO.getById(getElementAttributeByNames(resourceElement, "ResourceType", "Reference")));
+                    resourceDAO.create(resource);
                     List<ResourceGroup> groupList = new ArrayList<ResourceGroup>();
                     NodeList nl = resourceElement.getElementsByTagName("ResourceGroups");
                     if(nl.getLength()>0) {
@@ -234,7 +235,7 @@ public class DOMParserHSTT implements ImportService {
                     resource.setGroups(groupList);
                     //TODO read
                     //TODO save()
-                    resourceDAO.create(resource);
+                    resourceDAO.update(resource);
                 }
             }
         }
