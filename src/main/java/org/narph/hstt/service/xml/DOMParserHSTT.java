@@ -22,10 +22,9 @@ import java.util.List;
  * User: ende
  * Date: 08.04.12
  * Time: 18:34
- *
+ * <p/>
  * This DOM Parser reads the given input file and stores the Objects defined by HSTT.xml in POJOs and forwards them
  * into the DAO Layer. Preexisting Solutions are skipped in this process.
- *
  */
 @Service
 public class DOMParserHSTT implements ImportService {
@@ -75,57 +74,61 @@ public class DOMParserHSTT implements ImportService {
 
             NodeList nodes = root.getChildNodes();
             LOGGER.debug("DOM Parser: root: " + root.getTagName() + ", " + nodes.getLength());
-            for(int n=0; n<nodes.getLength(); n++) {
+            for (int n = 0; n < nodes.getLength(); n++) {
                 Node node = nodes.item(n);
 
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                     Element element = (Element) node;
 
-                    if(element.getTagName().equals("MetaData")) {
+                    if (element.getTagName().equals("MetaData")) {
                         LOGGER.debug("DOM - reading MetaData");
-                    } else if(element.getTagName().equals("Instances")) {
+
+
+                    } else if (element.getTagName().equals("Instances")) {
                         LOGGER.debug("DOM - reading Instances");
                         NodeList instanceNodes = node.getChildNodes();
-                        for(int i=0; i<instanceNodes.getLength(); i++) {
+                        for (int i = 0; i < instanceNodes.getLength(); i++) {
                             LOGGER.debug("DOM - found Instance: " + instanceNodes.item(i).toString());
                             Instance instance = new Instance();
 
-                            if(instanceNodes.item(i)!=null) {
+                            if (instanceNodes.item(i) != null) {
                                 Node instanceNode = instanceNodes.item(i);
-                                if(instanceNode instanceof Element) {
+                                if (instanceNode instanceof Element) {
                                     Element instanceElement = (Element) instanceNode;
                                     LOGGER.debug("DOM - instance handling -> " + instanceElement.getTagName() +
                                             ", " + instanceElement.getAttribute("Id"));
                                     instance.setId(instanceElement.getAttribute("Id"));
-                                    LOGGER.debug(" has interface: " + (instanceDAO != null ) );
+                                    LOGGER.debug(" has interface: " + (instanceDAO != null));
                                     instanceDAO.create(instance);
                                 }
                             }
                             NodeList infoNodes = instanceNodes.item(i).getChildNodes();
-                            for(int j=0; j<infoNodes.getLength(); j++) {
+                            for (int j = 0; j < infoNodes.getLength(); j++) {
                                 Node infoNode = infoNodes.item(j);
 
-                                if(infoNode.getNodeName().equals("Metadata")) {
+                                if (infoNode.getNodeName().equals("Metadata")) {
                                     LOGGER.debug("DOM - reading MetaData");
                                 }
-                                if(infoNode.getNodeName().equals("Times")) {
+                                if (infoNode.getNodeName().equals("Times")) {
                                     LOGGER.debug("DOM - reading Times");
                                     readTimes(instance, infoNode);
                                 }
-                                if(infoNode.getNodeName().equals("Resources")) {
+                                if (infoNode.getNodeName().equals("Resources")) {
                                     LOGGER.debug("DOM - reading Resources");
                                     readResources(instance, infoNode);
                                 }
-                                if(infoNode.getNodeName().equals("Events")) {
+                                if (infoNode.getNodeName().equals("Events")) {
                                     LOGGER.debug("DOM - reading Events");
                                     readEvents(instance, infoNode);
                                 }
-                                if(infoNode.getNodeName().equals("Constraints")) {
+                                if (infoNode.getNodeName().equals("Constraints")) {
                                     LOGGER.debug("DOM - reading Constraints");
                                     readConstraints(instance, infoNode);
                                 }
                             }
                         }
+
+
                     } else if (element.getTagName().equals("SolutionGroups")) {
 
                     }
@@ -142,19 +145,20 @@ public class DOMParserHSTT implements ImportService {
 
     /**
      * reading and extracting <Times></Times>
-     * @param instance Problem Instance this belongs to
+     *
+     * @param instance  Problem Instance this belongs to
      * @param timesNode the <Times></Times> element
      */
     private void readTimes(Instance instance, Node timesNode) {
         NodeList nodeList = timesNode.getChildNodes();
         // TimeGroups and Times
-        for(int n=0; n<nodeList.getLength(); n++) {
+        for (int n = 0; n < nodeList.getLength(); n++) {
             Node node = nodeList.item(n);
             if (node instanceof Element) {
                 Element element = (Element) node;
-                if(element.getTagName().equals("TimeGroups")) {
+                if (element.getTagName().equals("TimeGroups")) {
                     NodeList groupList = node.getChildNodes();
-                    for(int g=0; g<groupList.getLength(); g++) {
+                    for (int g = 0; g < groupList.getLength(); g++) {
                         Node group = groupList.item(g);
                         if (group instanceof Element) {
                             Element groupElement = (Element) group;
@@ -162,11 +166,13 @@ public class DOMParserHSTT implements ImportService {
                             TimeGroup timeGroup = new TimeGroup();
                             timeGroup.setId(groupElement.getAttribute("Id"));
                             timeGroup.setInstance(instance);
-                            timeGroup.setName(getElementTextByName(groupElement,"Name"));
+                            timeGroup.setName(getElementTextByName(groupElement, "Name"));
                             LOGGER.debug("DOM - saving TimeGroup: " + timeGroup.toString());
-                            if (groupElement.getTagName().equals("TimeGroup")) timeGroup.setType(TimeGroup.TimeGroupType.TIMEGROUP);
+                            if (groupElement.getTagName().equals("TimeGroup"))
+                                timeGroup.setType(TimeGroup.TimeGroupType.TIMEGROUP);
                             if (groupElement.getTagName().equals("Day")) timeGroup.setType(TimeGroup.TimeGroupType.DAY);
-                            if (groupElement.getTagName().equals("Week")) timeGroup.setType(TimeGroup.TimeGroupType.WEEK);
+                            if (groupElement.getTagName().equals("Week"))
+                                timeGroup.setType(TimeGroup.TimeGroupType.WEEK);
                             timeGroupDAO.create(timeGroup);
                         }
                     }
@@ -175,19 +181,19 @@ public class DOMParserHSTT implements ImportService {
                     Time time = new Time();
                     time.setId(element.getAttribute("Id"));
                     time.setInstance(instance);
-                    time.setName(getElementTextByName(element,"Name"));
+                    time.setName(getElementTextByName(element, "Name"));
                     LOGGER.debug("DOM - saving Time: " + time.toString());
                     timeDAO.create(time);
-                    if(element.getElementsByTagName("Week").getLength()>0) {
-                        time.setWeek(getElementAttributeByNames(element,"Week","Reference"));
+                    if (element.getElementsByTagName("Week").getLength() > 0) {
+                        time.setWeek(getElementAttributeByNames(element, "Week", "Reference"));
                     }
-                    if(element.getElementsByTagName("Day").getLength()>0) {
-                        time.setWeek(getElementAttributeByNames(element,"Day","Reference"));
+                    if (element.getElementsByTagName("Day").getLength() > 0) {
+                        time.setWeek(getElementAttributeByNames(element, "Day", "Reference"));
                     }
-                    if(element.getElementsByTagName("TimeGroups").getLength()>0) {
+                    if (element.getElementsByTagName("TimeGroups").getLength() > 0) {
                         NodeList nl = element.getElementsByTagName("TimeGroups").item(0).getChildNodes();
-                        for(int i=0; i<nl.getLength(); i++) {
-                            if(nl.item(i) instanceof Element) {
+                        for (int i = 0; i < nl.getLength(); i++) {
+                            if (nl.item(i) instanceof Element) {
                                 Element e = (Element) nl.item(i);
                                 TimeGroup group = timeGroupDAO.getById(e.getAttribute("Reference"));
                                 group.addTime(time);
@@ -203,27 +209,27 @@ public class DOMParserHSTT implements ImportService {
 
     private void readResources(Instance instance, Node resourcesNode) {
         NodeList nodeList = resourcesNode.getChildNodes();
-        for(int r=0; r<nodeList.getLength(); r++) {
+        for (int r = 0; r < nodeList.getLength(); r++) {
             Node resourceNode = nodeList.item(r);
-            if(resourceNode instanceof Element) {
+            if (resourceNode instanceof Element) {
                 Element resourceElement = (Element) resourceNode;
                 if (resourceElement.getTagName().equals("ResourceTypes")) {
                     NodeList typeList = resourceNode.getChildNodes();
-                    for(int t=0; t<typeList.getLength(); t++) {
-                        if(typeList.item(t) instanceof Element) {
+                    for (int t = 0; t < typeList.getLength(); t++) {
+                        if (typeList.item(t) instanceof Element) {
                             Element typeElement = (Element) typeList.item(t);
                             LOGGER.debug("DOM - reading ResourceType: " + typeElement.getAttribute("Id"));
                             ResourceType type = new ResourceType();
                             type.setId(typeElement.getAttribute("Id"));
                             type.setInstance(instance);
-                            type.setName(getElementTextByName(typeElement,"Name"));
+                            type.setName(getElementTextByName(typeElement, "Name"));
                             resourceTypeDAO.create(type);
                         }
                     }
                 } else if (resourceElement.getTagName().equals("ResourceGroups")) {
                     NodeList groupList = resourceNode.getChildNodes();
-                    for(int g=0; g<groupList.getLength(); g++) {
-                        if(groupList.item(g) instanceof Element) {
+                    for (int g = 0; g < groupList.getLength(); g++) {
+                        if (groupList.item(g) instanceof Element) {
                             Element groupElement = (Element) groupList.item(g);
                             LOGGER.debug("DOM - reading ResourceGroup: " + groupElement.getAttribute("Id"));
                             ResourceGroup group = new ResourceGroup();
@@ -244,10 +250,10 @@ public class DOMParserHSTT implements ImportService {
                     resourceDAO.create(resource);
                     List<ResourceGroup> groupList = new ArrayList<ResourceGroup>();
                     NodeList nl = resourceElement.getElementsByTagName("ResourceGroups");
-                    if(nl.getLength()>0) {
+                    if (nl.getLength() > 0) {
                         nl = nl.item(0).getChildNodes();
-                        for(int l=0; l<nl.getLength(); l++) {
-                            if(nl.item(l) instanceof Element) {
+                        for (int l = 0; l < nl.getLength(); l++) {
+                            if (nl.item(l) instanceof Element) {
                                 Element el = (Element) nl.item(l);
                                 ResourceGroup group = resourceGroupDAO.getById(el.getAttribute("Reference"));
                                 group.addResource(resource);
@@ -257,8 +263,6 @@ public class DOMParserHSTT implements ImportService {
                         }
                     }
                     resource.setGroups(groupList);
-                    //TODO read
-                    //TODO save()
                     resourceDAO.update(resource);
                 }
             }
@@ -267,14 +271,14 @@ public class DOMParserHSTT implements ImportService {
 
     private void readEvents(Instance instance, Node eventsNode) {
         NodeList nodeList = eventsNode.getChildNodes();
-        for(int e=0; e<nodeList.getLength(); e++) {
+        for (int e = 0; e < nodeList.getLength(); e++) {
             Node eventNode = nodeList.item(e);
-            if(eventNode instanceof Element) {
+            if (eventNode instanceof Element) {
                 Element eventElement = (Element) eventNode;
                 if (eventElement.getTagName().equals("EventGroups")) {
                     NodeList groupList = eventElement.getChildNodes();
-                    for(int g=0; g<groupList.getLength(); g++) {
-                        if(groupList.item(g) instanceof Element) {
+                    for (int g = 0; g < groupList.getLength(); g++) {
+                        if (groupList.item(g) instanceof Element) {
                             Element groupElement = (Element) groupList.item(g);
                             LOGGER.debug("DOM - reading EventGroup: " + groupElement.getAttribute("Id"));
 
@@ -282,7 +286,7 @@ public class DOMParserHSTT implements ImportService {
                             group.setId(groupElement.getAttribute("Id"));
                             group.setInstance(instance);
                             group.setName(getElementTextByName(groupElement, "Name"));
-                            if(groupElement.getTagName().equals("EventGroup")) {
+                            if (groupElement.getTagName().equals("EventGroup")) {
                                 eventGroupDAO.create(group);
                             } else if (groupElement.getTagName().equals("Course")) {
                                 Course c = new Course();
@@ -295,40 +299,120 @@ public class DOMParserHSTT implements ImportService {
                             }
                         }
                     }
-                } else if (eventElement.getTagName().equals("Event")) {
+                } else if (eventElement.getTagName().equals("Event")) {  // start element <Event>
+                    /*
+                        <Events>
+                            * Event Id +Color
+                                Name
+                                Duration
+                                + Workload
+                                + Course
+                                + Time
+                                + Resources
+                                + ResourceGroups
+                                + EventGroups
+
+                     */
                     LOGGER.debug("DOM - reading Event: " + eventElement.getAttribute("Id"));
                     Event event = new Event();
                     event.setId(eventElement.getAttribute("Id"));
-                    if(eventElement.hasAttribute("Color")) {
+                    if (eventElement.hasAttribute("Color")) {
                         event.setColor(eventElement.getAttribute("Color"));
                     }
                     event.setInstance(instance);
                     event.setName(getElementTextByName(eventElement, "Name"));
                     int d = Integer.parseInt(getElementTextByName(eventElement, "Duration"));
                     event.setDuration(d);
+                    LOGGER.debug("DOM - creating Event: " + event);
+                    eventDAO.create(event);
+
                     NodeList subNodes = eventElement.getChildNodes();
-                    for(int s=0; s<subNodes.getLength(); s++) {
-                        if(subNodes.item(s) instanceof Element) {
+                    for (int s = 0; s < subNodes.getLength(); s++) { // start reading optional elements
+                        if (subNodes.item(s) instanceof Element) {
                             Element subElement = (Element) subNodes.item(s);
-                        if (subElement.getTagName().equals("Workload")) {
-                            d = Integer.parseInt(getElementTextByName(subElement, "Workload"));
-                            event.setWorkload(d);
-                        } else if(subElement.getTagName().equals("Course")) {
-                            event.setCourse(courseDAO.getById(subElement.getAttribute("Reference")));
-                        } else if (subElement.getTagName().equals("Time")) {
-                            event.setTime(timeDAO.getById(subElement.getAttribute("Reference")));
-                        } else if (subElement.getTagName().equals("Resources")) {
 
-                        } else if (subElement.getTagName().equals("ResourceGroups")) {
+                            if (subElement.getTagName().equals("Workload")) {
+                                d = Integer.parseInt(getElementTextByName(eventElement, "Workload"));
+                                event.setWorkload(d);
+                            } else if (subElement.getTagName().equals("Course")) {
+                                Course course = courseDAO.getById(subElement.getAttribute("Reference"));
+                                course.addEvent(event);
+                                event.setCourse(course);
+                            } else if (subElement.getTagName().equals("Time")) {
+                                event.setTime(timeDAO.getById(subElement.getAttribute("Reference")));
+                            } else if (subElement.getTagName().equals("Resources")) {
+                                /*
+                                <Resources>
+                                    * Resource +Reference
+                                        + Role
+                                        + ResourceType
+                                        + Workload
+                                 */
+                                NodeList nl = subElement.getChildNodes(); // List of Resources in instance.events.event.resources
+                                for (int i = 0; i < nl.getLength(); i++) { // cycling Resources
+                                    if (nl.item(i) instanceof Element) {
+                                        Element sE = (Element) nl.item(i); // Resource element
+                                        EventResource eventResource = new EventResource();
 
-                        } else if (subElement.getTagName().equals("EventGroups")) {
+                                        eventResource.setEvent(event);
+                                        event.addResource(eventResource);
+                                        eventResourceDAO.create(eventResource);
 
-                        }
+                                        if (sE.hasAttribute("Reference")) {
+                                            Resource resource = resourceDAO.getById(sE.getAttribute("Reference"));
+                                            eventResource.setReference(resource);
+                                        }
+
+                                        if (sE.getElementsByTagName("Role").getLength() > 0) {
+                                            eventResource.setRole(getElementTextByName(sE, "Role"));
+                                        }
+
+                                        if (sE.getElementsByTagName("ResourceType").getLength() > 0) {
+                                            ResourceType resourceType = resourceTypeDAO.getById(getElementAttributeByNames(sE,"ResourceType","Reference"));
+                                            eventResource.setType(resourceType);
+                                        }
+
+                                        if (sE.getElementsByTagName("Workload").getLength() > 0) {
+                                            int h = Integer.parseInt(getElementTextByName(sE, "Workload"));
+                                            eventResource.setWorkload(h);
+                                        }
+                                        eventResourceDAO.update(eventResource);
+                                    }
+                                }
+                            } else if (subElement.getTagName().equals("ResourceGroups")) {
+                                /*
+                                    <ResourceGroups>
+                                        * ResourceGroup Reference
+                                 */
+                                NodeList nl = subElement.getChildNodes();
+                                for(int i=0; i<nl.getLength(); i++) {
+                                    if(nl.item(i) instanceof Element) {
+                                        Element rgElement = (Element) nl.item(i);
+                                        ResourceGroup rg = resourceGroupDAO.getById(rgElement.getAttribute("Reference"));
+                                        event.addResourceGroup(rg);
+                                    }
+                                }
+                            } else if (subElement.getTagName().equals("EventGroups")) {
+                                /*
+                                    <EventGroups>
+                                        * EventGroup Reference
+                                 */
+                                NodeList nl = subElement.getChildNodes();
+                                for(int i=0; i<nl.getLength(); i++) {
+                                    if(nl.item(i) instanceof Element) {
+                                        Element egElement = (Element) nl.item(i);
+                                        EventGroup eg = eventGroupDAO.getById(egElement.getAttribute("Reference"));
+                                        event.addEventGroup(eg);
+                                        eg.addEvent(event);
+
+                                    }
+                                }
+                            }
                         }
                     }
                     //TODO read
                     //TODO save()
-                    eventDAO.create(event);
+                    eventDAO.update(event);
                 }
             }
         }
@@ -336,8 +420,8 @@ public class DOMParserHSTT implements ImportService {
 
     private void readConstraints(Instance instance, Node constraintsNode) {
         NodeList nodeList = constraintsNode.getChildNodes();
-        for(int c=0; c<nodeList.getLength(); c++) {
-            if(nodeList.item(c) instanceof Element) {
+        for (int c = 0; c < nodeList.getLength(); c++) {
+            if (nodeList.item(c) instanceof Element) {
 
                 Element constraintElement = (Element) nodeList.item(c);
                 LOGGER.debug("DOM - reading Constraint: " + constraintElement.getAttribute("Id"));
@@ -348,14 +432,14 @@ public class DOMParserHSTT implements ImportService {
     }
 
     private String getElementTextByName(Element element, String name) {
-        if(element.getElementsByTagName(name).getLength()>0) {
+        if (element.getElementsByTagName(name).getLength() > 0) {
             return element.getElementsByTagName(name).item(0).getTextContent();
         }
         return "";
     }
 
     private String getElementAttributeByNames(Element element, String eName, String aName) {
-        if(element.getElementsByTagName(eName).getLength()>0) {
+        if (element.getElementsByTagName(eName).getLength() > 0) {
             Element e = (Element) element.getElementsByTagName(eName).item(0);
             return e.getAttribute(aName);
         }

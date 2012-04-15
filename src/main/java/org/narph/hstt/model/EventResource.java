@@ -24,13 +24,13 @@ public class EventResource implements Serializable {
     @Basic
     private int workload;
 
-    @ManyToOne
+    @ManyToOne(optional = true)
     private Resource reference;
 
-    @ManyToOne
+    @ManyToOne(optional = true)
     private ResourceType type;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     private Event event;
 
 
@@ -88,12 +88,9 @@ public class EventResource implements Serializable {
     public String toString() {
         final StringBuilder sb = new StringBuilder();
         sb.append("EventResource");
-        sb.append("{event=").append(event);
-        sb.append(", Role='").append(Role).append('\'');
+        sb.append("{id=").append(id);
         sb.append(", workload=").append(workload);
-        sb.append(", id=").append(id);
-        sb.append(", reference=").append(reference);
-        sb.append(", type=").append(type);
+        sb.append(", event=").append(event);
         sb.append('}');
         return sb.toString();
     }

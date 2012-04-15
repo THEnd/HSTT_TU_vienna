@@ -36,18 +36,18 @@ public class Event extends ConstraintEntity {
     @ManyToOne
     private Time time;
 
-    @ManyToMany(cascade = CascadeType.PERSIST, mappedBy = "events")
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH}, mappedBy = "events")
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<EventGroup> groups = new ArrayList<EventGroup>();
 
     @OneToOne
     private Course course;
 
-    @OneToMany(mappedBy = "event")
+    @OneToMany(mappedBy = "event", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<EventResource> resources = new ArrayList<EventResource>();
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<ResourceGroup> resourcegroups = new ArrayList<ResourceGroup>();
 
@@ -159,16 +159,9 @@ public class Event extends ConstraintEntity {
     public String toString() {
         final StringBuilder sb = new StringBuilder();
         sb.append("Event");
-        sb.append("{color='").append(color).append('\'');
-        sb.append(", id='").append(id).append('\'');
+        sb.append("{id='").append(id).append('\'');
         sb.append(", name='").append(name).append('\'');
-        sb.append(", duration='").append(duration).append('\'');
         sb.append(", workload=").append(workload);
-        sb.append(", time=").append(time);
-        sb.append(", groups=").append(groups);
-        sb.append(", course=").append(course);
-        sb.append(", resources=").append(resources);
-        sb.append(", resourcegroups=").append(resourcegroups);
         sb.append('}');
         return sb.toString();
     }

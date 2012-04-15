@@ -33,10 +33,10 @@ public class HSTT {
         System.out.println("finished initialization");
 
         //process("examples\\GreeceThirdHighSchoolPatras2010.xml");
-        //process("examples\\BrazilInstance1.xml");
-        //process("examples\\EnglandStPaul.xml");
-        String in_file = "examples\\FinlandCollege.xml";
-        String out_file = "examples\\FinlandCollege.xml";
+        //process("examples\\BrazilInstance1.xml"); DenmarkSmallSchool.xml
+        //process("examples\\EnglandStPaul.xml"); AustraliaTES99.xml
+        String in_file = "examples\\AustraliaTES99.xml";
+        String out_file = "examples\\BrazilInstance1.xml";
 
         for(int i=0; i<args.length; i++) {
             if(args[i].equals("-i")) {

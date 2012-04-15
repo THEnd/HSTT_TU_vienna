@@ -24,7 +24,7 @@ public class EventGroup extends ConstraintEntity {
     @Basic
     private String name;
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Event> events = new ArrayList<Event>();
 
