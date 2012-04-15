@@ -13,6 +13,7 @@ import javax.persistence.Entity;
  */
 @Entity
 public class AssignResourceConstraint extends Constraint {
+
     @Basic
     private String role;
 

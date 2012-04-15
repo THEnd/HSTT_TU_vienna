@@ -16,6 +16,9 @@ public class LimitWorkloadConstraint extends Constraint {
     @Basic
     private int minimum;
 
+    @Basic
+    private int maximum;
+
     public int getMinimum() {
         return minimum;
     }
@@ -23,9 +26,6 @@ public class LimitWorkloadConstraint extends Constraint {
     public void setMinimum(int minimum) {
         this.minimum = minimum;
     }
-
-    @Basic
-    private int maximum;
 
     public int getMaximum() {
         return maximum;

@@ -16,8 +16,15 @@ import java.util.Collection;
  */
 @Entity
 public class ClusterBusyTimesConstraint extends Constraint {
+
     @Basic
     private int minimum;
+
+    @Basic
+    private int maximum;
+
+    @ManyToMany
+    private Collection<TimeGroup> timegroups;
 
     public int getMinimum() {
         return minimum;
@@ -27,8 +34,6 @@ public class ClusterBusyTimesConstraint extends Constraint {
         this.minimum = minimum;
     }
 
-    @Basic
-    private int maximum;
 
     public int getMaximum() {
         return maximum;
@@ -37,9 +42,6 @@ public class ClusterBusyTimesConstraint extends Constraint {
     public void setMaximum(int maximum) {
         this.maximum = maximum;
     }
-
-    @ManyToMany
-    private Collection<TimeGroup> timegroups;
 
     public Collection<TimeGroup> getTimegroups() {
         return timegroups;

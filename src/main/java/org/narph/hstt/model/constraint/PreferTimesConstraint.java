@@ -17,8 +17,15 @@ import java.util.Collection;
  */
 @Entity
 public class PreferTimesConstraint extends Constraint {
+
     @ManyToMany
     private Collection<TimeGroup> timegroups;
+
+    @ManyToMany
+    private Collection<Time> times;
+
+    @Basic
+    private int duration;
 
     public Collection<TimeGroup> getTimegroups() {
         return timegroups;
@@ -28,9 +35,6 @@ public class PreferTimesConstraint extends Constraint {
         this.timegroups = timegroups;
     }
 
-    @ManyToMany
-    private Collection<Time> times;
-
     public Collection<Time> getTimes() {
         return times;
     }
@@ -38,9 +42,6 @@ public class PreferTimesConstraint extends Constraint {
     public void setTimes(Collection<Time> times) {
         this.times = times;
     }
-
-    @Basic
-    private int duration;
 
     public int getDurations() {
         return duration;

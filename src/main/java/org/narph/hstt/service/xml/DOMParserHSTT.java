@@ -425,6 +425,21 @@ public class DOMParserHSTT implements ImportService {
 
                 Element constraintElement = (Element) nodeList.item(c);
                 LOGGER.debug("DOM - reading Constraint: " + constraintElement.getAttribute("Id"));
+
+                Constraint constraint = new Constraint();
+                constraint.setInstance(instance);
+                constraint.setId(constraintElement.getAttribute("Id"));
+                constraint.setName(getElementTextByName(constraintElement, "Name"));
+                int d = Integer.parseInt(getElementTextByName(constraintElement,"Weight"));
+                constraint.setWeight(d);
+                Constraint.CostFunction cf = Constraint.CostFunction.valueOf(getElementTextByName(constraintElement, "CostFunction"));
+                constraint.setCostFunction(cf);
+                constraint.setRequired(getElementTextByName(constraintElement,"Required").equals(true));
+
+                String constraintType = constraintElement.getTagName();
+
+                constraintDAO.create(constraint);
+
                 //TODO
 
             }

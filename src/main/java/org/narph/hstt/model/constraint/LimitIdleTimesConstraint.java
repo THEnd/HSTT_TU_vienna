@@ -18,6 +18,13 @@ public class LimitIdleTimesConstraint extends Constraint {
     @Basic
     private int minimum;
 
+    @Basic
+    private int maximum;
+
+    @ManyToOne(optional = true)      // optional true because of inheritance pattern!
+    private TimeGroup timegroups;
+
+
     public int getMinimum() {
         return minimum;
     }
@@ -26,9 +33,6 @@ public class LimitIdleTimesConstraint extends Constraint {
         this.minimum = minimum;
     }
 
-    @Basic
-    private int maximum;
-
     public int getMaximum() {
         return maximum;
     }
@@ -36,9 +40,6 @@ public class LimitIdleTimesConstraint extends Constraint {
     public void setMaximum(int maximum) {
         this.maximum = maximum;
     }
-
-    @ManyToOne(optional = false)
-    private TimeGroup timegroups;
 
     public TimeGroup getTimegroups() {
         return timegroups;

@@ -17,8 +17,15 @@ import java.util.Collection;
  */
 @Entity
 public class PreferResourcesConstraint extends Constraint {
+
     @Basic
     private String role;
+
+    @ManyToMany
+    private Collection<Resource> resources;
+
+    @ManyToMany
+    private Collection<ResourceGroup> resourcegroups;
 
     public String getRole() {
         return role;
@@ -28,9 +35,6 @@ public class PreferResourcesConstraint extends Constraint {
         this.role = role;
     }
 
-    @ManyToMany
-    private Collection<Resource> resources;
-
     public Collection<Resource> getResources() {
         return resources;
     }
@@ -38,9 +42,6 @@ public class PreferResourcesConstraint extends Constraint {
     public void setResources(Collection<Resource> resources) {
         this.resources = resources;
     }
-
-    @ManyToMany
-    private Collection<ResourceGroup> resourcegroups;
 
     public Collection<ResourceGroup> getResourcegroups() {
         return resourcegroups;

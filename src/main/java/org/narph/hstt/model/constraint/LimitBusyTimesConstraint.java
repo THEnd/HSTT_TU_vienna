@@ -19,6 +19,13 @@ public class LimitBusyTimesConstraint extends Constraint {
     @Basic
     private int minimum;
 
+    @Basic
+    private int maximum;
+
+    @ManyToMany
+    private Collection<TimeGroup> timegroups;
+
+
     public int getMinimum() {
         return minimum;
     }
@@ -27,9 +34,6 @@ public class LimitBusyTimesConstraint extends Constraint {
         this.minimum = minimum;
     }
 
-    @Basic
-    private int maximum;
-
     public int getMaximum() {
         return maximum;
     }
@@ -37,9 +41,6 @@ public class LimitBusyTimesConstraint extends Constraint {
     public void setMaximum(int maximum) {
         this.maximum = maximum;
     }
-
-    @ManyToMany
-    private Collection<TimeGroup> timegroups;
 
     public Collection<TimeGroup> getTimegroups() {
         return timegroups;

@@ -20,8 +20,10 @@ public class Constraint implements Serializable {
     private static final long serialVersionUID = -3544922865266049529L;
 
     @Id
-    @GeneratedValue
-    private int id;
+    private String id;
+
+    @Basic
+    private String idRef;
 
     @Basic
     private String name;
@@ -47,11 +49,11 @@ public class Constraint implements Serializable {
     }
 
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -95,18 +97,23 @@ public class Constraint implements Serializable {
         this.instance = instance;
     }
 
+    public String getIdRef() {
+        return idRef;
+    }
 
+    public void setIdRef(String idRef) {
+        this.idRef = idRef;
+    }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
         sb.append("Constraint");
-        sb.append("{costFunction=").append(costFunction);
-        sb.append(", id=").append(id);
+        sb.append("{idRef='").append(idRef).append('\'');
         sb.append(", name='").append(name).append('\'');
         sb.append(", required=").append(required);
+        sb.append(", costFunction=").append(costFunction);
         sb.append(", weight=").append(weight);
-        sb.append(", instance=").append(instance);
         sb.append('}');
         return sb.toString();
     }

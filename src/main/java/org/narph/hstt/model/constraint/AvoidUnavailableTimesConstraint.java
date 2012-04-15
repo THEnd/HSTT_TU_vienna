@@ -16,8 +16,12 @@ import java.util.Collection;
  */
 @Entity
 public class AvoidUnavailableTimesConstraint extends Constraint {
+
     @ManyToMany
     private Collection<Time> timegroups;
+
+    @ManyToMany
+    private Collection<TimeGroup> times;
 
     public Collection<Time> getTimegroups() {
         return timegroups;
@@ -26,9 +30,6 @@ public class AvoidUnavailableTimesConstraint extends Constraint {
     public void setTimegroups(Collection<Time> timegroups) {
         this.timegroups = timegroups;
     }
-
-    @ManyToMany
-    private Collection<TimeGroup> times;
 
     public Collection<TimeGroup> getTimes() {
         return times;

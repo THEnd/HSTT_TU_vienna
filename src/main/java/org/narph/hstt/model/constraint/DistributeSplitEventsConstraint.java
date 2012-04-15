@@ -13,8 +13,16 @@ import javax.persistence.Entity;
  */
 @Entity
 public class DistributeSplitEventsConstraint extends Constraint {
+
     @Basic
     private int duration;
+
+    @Basic
+    private int minimum;
+
+    @Basic
+    private int maximum;
+
 
     public int getDuration() {
         return this.duration;
@@ -24,9 +32,6 @@ public class DistributeSplitEventsConstraint extends Constraint {
         this.duration = duration;
     }
 
-    @Basic
-    private int minimum;
-
     public int getMinimum() {
         return minimum;
     }
@@ -34,9 +39,6 @@ public class DistributeSplitEventsConstraint extends Constraint {
     public void setMinimum(int minimum) {
         this.minimum = minimum;
     }
-
-    @Basic
-    private int maximum;
 
     public int getMaximum() {
         return maximum;

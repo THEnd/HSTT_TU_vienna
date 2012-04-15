@@ -16,6 +16,16 @@ public class SplitEventsConstraint extends Constraint {
     @Basic
     private int minimumDuration;
 
+    @Basic
+    private int minimumAmount;
+
+    @Basic
+    private int maximumAmount;
+
+    @Basic
+    private int maximumDuration;
+
+
     public int getMinimumDuration() {
         return minimumDuration;
     }
@@ -23,9 +33,6 @@ public class SplitEventsConstraint extends Constraint {
     public void setMinimumDuration(int minimumDuration) {
         this.minimumDuration = minimumDuration;
     }
-
-    @Basic
-    private int maximumDuration;
 
     public int getMaximumDuration() {
         return maximumDuration;
@@ -35,8 +42,6 @@ public class SplitEventsConstraint extends Constraint {
         this.maximumDuration = maximumDuration;
     }
 
-    @Basic
-    private int minimumAmount;
 
     public int getMinimumAmount() {
         return minimumAmount;
@@ -46,8 +51,6 @@ public class SplitEventsConstraint extends Constraint {
         this.minimumAmount = minimumAmount;
     }
 
-    @Basic
-    private int maximumAmount;
 
     public int getMaximumAmount() {
         return maximumAmount;
