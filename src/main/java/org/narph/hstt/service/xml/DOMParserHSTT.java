@@ -221,13 +221,17 @@ public class DOMParserHSTT implements ImportService {
                     resource.setName(getElementTextByName(resourceElement, "Name"));
                     resource.setType(resourceTypeDAO.getById(getElementAttributeByNames(resourceElement, "ResourceType", "Reference")));
                     List<ResourceGroup> groupList = new ArrayList<ResourceGroup>();
-                    NodeList nl = resourceElement.getChildNodes();
-                    for(int l=0; l<nl.getLength(); l++) {
-                        if(nl.item(l) instanceof Element) {
-                            Element el = (Element) nl.item(l);
-
+                    NodeList nl = resourceElement.getElementsByTagName("ResourceGroups");
+                    if(nl.getLength()>0) {
+                        nl = nl.item(0).getChildNodes();
+                        for(int l=0; l<nl.getLength(); l++) {
+                            if(nl.item(l) instanceof Element) {
+                                Element el = (Element) nl.item(l);
+                                groupList.add(resourceGroupDAO.getById(el.getAttribute("Reference")));
+                            }
                         }
                     }
+                    resource.setGroups(groupList);
                     //TODO read
                     //TODO save()
                     resourceDAO.create(resource);
