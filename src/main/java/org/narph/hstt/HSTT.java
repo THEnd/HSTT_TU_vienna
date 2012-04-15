@@ -30,12 +30,32 @@ public class HSTT {
         }
 
 
-
-
-        process("examples\\GreeceThirdHighSchoolPatras2010.xml");
+        //process("examples\\GreeceThirdHighSchoolPatras2010.xml");
         //process("examples\\BrazilInstance1.xml");
         //process("examples\\EnglandStPaul.xml");
+        String in_file = "examples\\FinlandCollege.xml";
+        String out_file = "examples\\BrazilInstance1.xml";
 
+        for(int i=0; i<args.length; i++) {
+            if(args[i].equals("-i")) {
+                if(args.length>i) {
+                    i++;
+                    in_file = args[i];
+                }
+            }
+            if(args[i].equals("-o")) {
+                if(args.length>i) {
+                    i++;
+                    out_file = args[i];
+                }
+            }
+        }
+
+        process(in_file);
+
+        //TODO calculate solution
+
+        //TODO export result
 
         LOGGER.info("shut down, bye bye");
     }
