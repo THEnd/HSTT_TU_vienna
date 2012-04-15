@@ -390,6 +390,7 @@ public class DOMParserHSTT implements ImportService {
                                         Element rgElement = (Element) nl.item(i);
                                         ResourceGroup rg = resourceGroupDAO.getById(rgElement.getAttribute("Reference"));
                                         event.addResourceGroup(rg);
+                                        resourceGroupDAO.update(rg);
                                     }
                                 }
                             } else if (subElement.getTagName().equals("EventGroups")) {
@@ -397,6 +398,7 @@ public class DOMParserHSTT implements ImportService {
                                     <EventGroups>
                                         * EventGroup Reference
                                  */
+                                //System.out.println("reading eventgroups");
                                 NodeList nl = subElement.getChildNodes();
                                 for(int i=0; i<nl.getLength(); i++) {
                                     if(nl.item(i) instanceof Element) {
@@ -404,14 +406,12 @@ public class DOMParserHSTT implements ImportService {
                                         EventGroup eg = eventGroupDAO.getById(egElement.getAttribute("Reference"));
                                         event.addEventGroup(eg);
                                         eg.addEvent(event);
-
+                                        eventGroupDAO.update(eg);
                                     }
                                 }
                             }
                         }
                     }
-                    //TODO read
-                    //TODO save()
                     eventDAO.update(event);
                 }
             }
