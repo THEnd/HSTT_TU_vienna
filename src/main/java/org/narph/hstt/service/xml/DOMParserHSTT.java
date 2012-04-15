@@ -22,6 +22,10 @@ import java.util.List;
  * User: ende
  * Date: 08.04.12
  * Time: 18:34
+ *
+ * This DOM Parser reads the given input file and stores the Objects defined by HSTT.xml in POJOs and forwards them
+ * into the DAO Layer. Preexisting Solutions are skipped in this process.
+ *
  */
 @Service
 public class DOMParserHSTT implements ImportService {
@@ -52,6 +56,7 @@ public class DOMParserHSTT implements ImportService {
     private TimeDAO timeDAO;
     @Autowired
     private TimeGroupDAO timeGroupDAO;
+
 
     public boolean load(String[] args) throws Exception {
         LOGGER.debug("DOM Parser loading...");

@@ -16,7 +16,7 @@ public interface SolverService {
 
     /**
      * specify the input for the solver
-     * @param args
+     * @param args array of arguments to pass on to the solver
      */
     public void setMetadata(String[] args);
 
