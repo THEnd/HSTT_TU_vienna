@@ -20,6 +20,12 @@ public class ResourceType implements Serializable {
     @Id
     private String id;
 
+    @Basic
+    private String name;
+
+    @ManyToOne(optional = false)
+    private Instance instance;
+
     public String getId() {
         return id;
     }
@@ -28,9 +34,6 @@ public class ResourceType implements Serializable {
         this.id = id;
     }
 
-    @Basic
-    private String name;
-
     public String getName() {
         return name;
     }
@@ -38,9 +41,6 @@ public class ResourceType implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-
-    @ManyToOne(optional = false)
-    private Instance instance;
 
     public Instance getInstance() {
         return instance;

@@ -6,6 +6,8 @@ import org.narph.hstt.service.ImportService;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.Date;
+
 /**
  * Created by IntelliJ IDEA.
  * User: ende
@@ -19,7 +21,7 @@ public class HSTT {
     private static BeanFactory beanFactory;
 
     public static void main(final String[] args) throws Exception {
-
+        System.out.println("starting up, please wait. initialization can take a while on first run.");
         PropertyConfigurator.configureAndWatch("log4j.properties");
         LOGGER.info("welcome to the narph HSTT solver");
 
@@ -28,7 +30,7 @@ public class HSTT {
         } catch (Exception e) {
             LOGGER.error(" " + e.getLocalizedMessage());
         }
-
+        System.out.println("finished initialization");
 
         //process("examples\\GreeceThirdHighSchoolPatras2010.xml");
         //process("examples\\BrazilInstance1.xml");
@@ -50,12 +52,19 @@ public class HSTT {
                 }
             }
         }
-
+        System.out.println("start reading file ["+in_file+"]");
+        Date stopwatch = new Date();
         process(in_file);
+        System.out.println("finished reading file in [" + ((new Date()).getTime() - stopwatch.getTime()) + "ms]");
 
+        System.out.println("generating timeslots and events...");
         //TODO calculate solution
+        System.out.println("calculating solution...");
+
+
 
         //TODO export result
+        System.out.println("finished");
 
         LOGGER.info("shut down, bye bye");
     }

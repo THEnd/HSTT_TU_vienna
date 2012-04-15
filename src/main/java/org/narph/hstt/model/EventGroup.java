@@ -1,5 +1,8 @@
 package org.narph.hstt.model;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +21,14 @@ public class EventGroup extends ConstraintEntity {
     @Id
     private String id;
 
+    @Basic
+    private String name;
+
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private List<Event> events = new ArrayList<Event>();
+
+
     public String getId() {
         return id;
     }
@@ -25,9 +36,6 @@ public class EventGroup extends ConstraintEntity {
     public void setId(String id) {
         this.id = id;
     }
-
-    @Basic
-    private String name;
 
     public String getName() {
         return name;
@@ -37,8 +45,6 @@ public class EventGroup extends ConstraintEntity {
         this.name = name;
     }
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
-    private List<Event> events = new ArrayList<Event>();
 
     public List<Event> getEvents() {
         return events;
@@ -46,6 +52,14 @@ public class EventGroup extends ConstraintEntity {
 
     public void setEvents(List<Event> events) {
         this.events = events;
+    }
+
+    public void addEvent(Event event) {
+        this.events.add(event);
+    }
+
+    public boolean removeEvent(Event event) {
+        return this.events.remove(event);
     }
 
     @Override

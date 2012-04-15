@@ -33,8 +33,6 @@ public class DOMParserHSTT implements ImportService {
     private static final Logger LOGGER = Logger.getLogger("hstt_import");
 
     @Autowired
-    private AssignmentDAO assignmentDAO;
-    @Autowired
     private ConstraintDAO constraintDAO;
     @Autowired
     private CourseDAO courseDAO;
@@ -233,7 +231,10 @@ public class DOMParserHSTT implements ImportService {
                         for(int l=0; l<nl.getLength(); l++) {
                             if(nl.item(l) instanceof Element) {
                                 Element el = (Element) nl.item(l);
-                                groupList.add(resourceGroupDAO.getById(el.getAttribute("Reference")));
+                                ResourceGroup group = resourceGroupDAO.getById(el.getAttribute("Reference"));
+                                group.addResource(resource);
+                                groupList.add(group);
+
                             }
                         }
                     }

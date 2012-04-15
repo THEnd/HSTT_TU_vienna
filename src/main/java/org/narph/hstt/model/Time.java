@@ -1,5 +1,8 @@
 package org.narph.hstt.model;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,6 +25,7 @@ public class Time implements Serializable {
     private String name;
 
     @ManyToMany(mappedBy = "times")
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<TimeGroup> group = new ArrayList<TimeGroup>();
 
     @ManyToOne(optional = false)
@@ -32,12 +36,21 @@ public class Time implements Serializable {
     @Basic
     private String day;
 
+
     public List<TimeGroup> getGroup() {
         return group;
     }
 
     public void setGroup(List<TimeGroup> group) {
         this.group = group;
+    }
+
+    public void addTimeGroup(TimeGroup timeGroup) {
+        this.group.add(timeGroup);
+    }
+
+    public boolean removeTimeGroup(TimeGroup timeGroup) {
+        return this.group.remove(timeGroup);
     }
 
     public String getId() {

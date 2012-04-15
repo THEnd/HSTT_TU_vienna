@@ -23,11 +23,17 @@ public class Constraint implements Serializable {
     @GeneratedValue
     private int id;
 
+    @Basic
     private String name;
-    private boolean required;
-    private int weight;
-    private CostFunction costFunction;
 
+    @Basic
+    private boolean required;
+
+    @Basic
+    private int weight;
+
+    @Basic
+    private CostFunction costFunction;
 
     @ManyToOne(optional = false)
     private Instance instance;

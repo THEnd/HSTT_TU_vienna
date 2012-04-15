@@ -1,5 +1,8 @@
 package org.narph.hstt.model;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,15 +37,18 @@ public class Event extends ConstraintEntity {
     private Time time;
 
     @ManyToMany(cascade = CascadeType.PERSIST, mappedBy = "events")
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<EventGroup> groups = new ArrayList<EventGroup>();
 
     @OneToOne
     private Course course;
 
     @OneToMany(mappedBy = "event")
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<EventResource> resources = new ArrayList<EventResource>();
 
     @ManyToMany
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<ResourceGroup> resourcegroups = new ArrayList<ResourceGroup>();
 
     public String getId() {
@@ -101,6 +107,14 @@ public class Event extends ConstraintEntity {
         this.groups = groups;
     }
 
+    public void addEventGroup(EventGroup group) {
+        this.groups.add(group);
+    }
+
+    public boolean removeEventGroup(EventGroup group) {
+        return this.groups.remove(group);
+    }
+
     public Course getCourse() {
         return course;
     }
@@ -117,12 +131,28 @@ public class Event extends ConstraintEntity {
         this.resources = resources;
     }
 
+    public void addResource(EventResource resource) {
+        this.resources.add(resource);
+    }
+
+    public boolean removeResource(EventResource resource) {
+        return this.resources.remove(resource);
+    }
+
     public List<ResourceGroup> getResourcegroups() {
         return resourcegroups;
     }
 
     public void setResourcegroups(List<ResourceGroup> resourcegroups) {
         this.resourcegroups = resourcegroups;
+    }
+
+    public void addResourceGroup(ResourceGroup group) {
+        this.resourcegroups.add(group);
+    }
+
+    public boolean removeResourceGroup(ResourceGroup group) {
+        return this.resourcegroups.remove(group);
     }
 
     @Override

@@ -14,8 +14,25 @@ public class EventResource implements Serializable {
 
     private static final long serialVersionUID = 6420496436953414402L;
 
+    @Id
+    @GeneratedValue
+    private int id;
+
     @Basic
     private String Role;
+
+    @Basic
+    private int workload;
+
+    @ManyToOne
+    private Resource reference;
+
+    @ManyToOne
+    private ResourceType type;
+
+    @ManyToOne(optional = false)
+    private Event event;
+
 
     public String getRole() {
         return Role;
@@ -25,9 +42,6 @@ public class EventResource implements Serializable {
         Role = role;
     }
 
-    @Basic
-    private int workload;
-
     public int getWorkload() {
         return workload;
     }
@@ -35,10 +49,6 @@ public class EventResource implements Serializable {
     public void setWorkload(int workload) {
         this.workload = workload;
     }
-
-    @GeneratedValue
-    @Id
-    private int id;
 
     public int getId() {
         return id;
@@ -48,8 +58,6 @@ public class EventResource implements Serializable {
         this.id = id;
     }
 
-    @ManyToOne
-    private Resource reference;
 
     public Resource getReference() {
         return reference;
@@ -59,8 +67,6 @@ public class EventResource implements Serializable {
         this.reference = reference;
     }
 
-    @ManyToOne
-    private ResourceType type;
 
     public ResourceType getType() {
         return type;
@@ -69,9 +75,6 @@ public class EventResource implements Serializable {
     public void setType(ResourceType type) {
         this.type = type;
     }
-
-    @ManyToOne(optional = false)
-    private Event event;
 
     public Event getEvent() {
         return event;

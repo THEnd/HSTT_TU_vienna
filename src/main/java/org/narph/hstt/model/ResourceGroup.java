@@ -1,5 +1,8 @@
 package org.narph.hstt.model;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.util.*;
 
@@ -18,6 +21,7 @@ public class ResourceGroup extends ConstraintEntity {
     private String id;
 
     @ManyToMany
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Resource> resources = new ArrayList<Resource>();
 
     @Basic
@@ -56,6 +60,14 @@ public class ResourceGroup extends ConstraintEntity {
 
     public void setType(ResourceType type) {
         this.type = type;
+    }
+
+    public void addResource(Resource resource) {
+        this.resources.add(resource);
+    }
+
+    public boolean removeResource(Resource resource) {
+        return this.resources.remove(resource);
     }
 
     @Override
